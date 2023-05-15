@@ -54,6 +54,8 @@ Travel speed to use for gcode moves in RatOS Macro's in mm/s.
 | variable_safe_home_x  | "middle" / number | "middle" | The x coordinate for where to return the toolhead to when homing Z                  |
 | variable_safe_home_y  | "middle" / number | "middle  | The y coordinate for where to return the toolhead to when homing Z                  |
 | variable_homing_z_hop | number            | 15       | How much to raise the toolhead after homing Z. Probe configs may change this value. |
+| variable_driver_type_x| string            | "tmc2209"| The driver type used on X. Used to restore current after sensorless homing          |
+| variable_driver_type_y| string            | "tmc2209"| The driver type used on X. Used to restore current after sensorless homing          |
 
 ### Heating
 
