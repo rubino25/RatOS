@@ -14,6 +14,10 @@ To enable adaptive priming set `variable_adaptive_mesh` to `True` in your RatOS 
 | ---------------------- | --------------- | ------- | ---------------------------------- |
 | variable_adaptive_mesh | True / False    | False   | Whether to enable adaptive meshing |
 
+:::info
+If you are currently using PAM, you should delete the PAM includes from printer.cfg before proceeding. Afterwards you can delete the PAM directory and remove the PAM moonraker.conf entry.
+:::
+
 ## Slicer configuration
 
 Adaptive meshing requires that you provide print area coordinates to the START_PRINT macro, you can copy and paste the START_PRINT macro for your slicer below.
@@ -47,3 +51,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature] X0
 ```ini
 START_PRINT EXTRUDER_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0} X0=%MINX% Y0=%MINY% X1=%MAXX% Y1=%MAXY%
 ```
+
+## Relative reference index
+
+RatOS Adaptive Meshing currently doesn't modify the relative reference index, it's generally not advised to use relative reference index with adaptive meshing.
