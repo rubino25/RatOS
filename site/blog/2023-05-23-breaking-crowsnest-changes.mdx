@@ -42,9 +42,10 @@ sudo make install
 11. When asked to reboot, answer "Y" for "Yes".
 
 12. After rebooting, go to the Machine tab in mainsail and edit crowsnest.conf. Enter your old settings from the file you downloaded, alternatively crowsnest should have created a backup file called crowsnest.conf.date-of-backup.
-13. In crowsnest.conf change `mode` to `camera-streamer`.
-14. Back in mainsail, edit your web camera settings and make sure the "Camera Streamer" option is selected.
-15. Change `URL Stream` and `URL Snapshot` to `webcam/webrtc`
+
+13. (Skip if not using a Raspberry Pi) In crowsnest.conf change `mode` to `camera-streamer`.
+14. (Skip if not using a Raspberry Pi) Back in mainsail, edit your web camera settings and make sure the "Camera Streamer" option is selected.
+15. (Skip if not using a Raspberry Pi) Change `URL Stream` and `URL Snapshot` to `webcam/webrtc`
     ![Camera Stream option enabled](./_media/camera-stream-option.png)
 
 You're now using Crowsnest v4, which should have much better performance.
