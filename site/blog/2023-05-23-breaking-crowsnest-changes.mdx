@@ -65,11 +65,13 @@ Thanks to tomlawesome for the image!
 
 If you're using an older raspberry pi camera and it stopped working, you'll need to do some additional steps to make it work again.
 
+1. Disable legacy camera support by running `sudo raspi-config` and selecting `3 Interface Options` -> `I1 Legacy Camera` -> `No`. Finally press escape to get out of raspi-config.
 1. Edit /boot/config.txt by running `sudo nano /boot/config.txt`. Find the [all] section at the bottom. Depending on which camera you have, you'll need to add a `dtoverlay` set statement at the end of the [all] section. Here's a list of sensors and the corresponding set statements. Look up your particular camera to find out which sensor it uses.
 
 | Model         | Set Statement                              | Known Cameras with this sensor |
 | ------------- | ------------------------------------------ | ------------------------------ |
-| OV9281        | dtoverlay=ov9281                           | Raspberry Pi Camera Module V1  |
+| OV5647        | dtoverlay=ov5647                           | Raspberry Pi Camera Module V1  |
+| OV9281        | dtoverlay=ov9281                           | ?                              |
 | IMX290/IMX327 | dtoverlay=imx290, clock-frequency=37125000 | ?                              |
 | IMX378        | dtoverlay=imx378                           | ?                              |
 | IMX219        | dtoverlay=imx219                           | Raspberry Pi Camera Module V2  |
