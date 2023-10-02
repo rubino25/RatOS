@@ -16,6 +16,7 @@ RatOS currently supports the following control boards:
 -   [BIGTREETECH SKR 3 EZ](btt/skr-3-ez.mdx)
 -   [BIGTREETECH Octopus v1.1](btt/octopus-11.md)
 -   [BIGTREETECH Octopus v1.1 F407](btt/octopus-11-407.md)
+-   [BIGTREETECH Octopus Max EZ](btt/octopus-max-ez.mdx)
 -   [BIGTREETECH Octopus Pro 446](btt/octopus-pro-446.md)
 -   [BIGTREETECH Octopus Pro 429](btt/octopus-pro-429.md)
 -   [BIGTREETECH Octopus Pro H723 v1.0](btt/octopus-pro-h723.md)
