@@ -28,6 +28,7 @@ END_PRINT
 :::info
 This is the ONLY gcode you need, delete everything else. Copy paste the following **as is**.
 :::
+
 Start GCode
 
 ```properties
@@ -58,6 +59,22 @@ START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_te
 
 End GCode
 ```properties
+END_PRINT
+```
+
+## OrcaSlicer
+
+:::info
+Make sure to set the GCode flavor to klipper
+:::
+
+Start GCode
+```properties
+START_PRINT EXTRUDER_TEMP=[nozzle_temperature_initial_layer] BED_TEMP=[bed_temperature_initial_layer_single]
+```
+
+End GCode
+```
 END_PRINT
 ```
 
