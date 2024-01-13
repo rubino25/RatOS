@@ -7,12 +7,12 @@
 # Source error handling, leave this in place
 set -xe
 
-sudo -u ${BASE_USER} /home/${BASE_USER}/printer_data/config/RatOS/scripts/ratos-post-install.sh
+sudo -u "${BASE_USER}" /home/"${BASE_USER}"/printer_data/config/RatOS/scripts/ratos-post-install.sh
 
 # Stop the configurator
 
 echo "Stopping the configurator"
-curl --silent 'http://localhost:3000/configure/api/trpc/kill' & > /dev/null
+curl --silent 'http://localhost:3000/configure/api/trpc/kill' &> /dev/null
 
 retries=0
 while [ "$(pgrep -f -c "ratos-configurator")" -gt 0 ]; do
