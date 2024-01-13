@@ -78,7 +78,7 @@ sudo -u "${BASE_USER}" "${KLIPPER_PYTHON_DIR}"/bin/pip install -r "${KLIPPER_SRC
 popd &> /dev/null || exit 1
 
 # Compile python files
-sudo -u "${BASE_USER}" "${KLIPPER_PYTHON_DIR}"/bin/python -m compileall klippy
+sudo -u "${BASE_USER}" "${KLIPPER_PYTHON_DIR}"/bin/python -m compileall "${KLIPPER_SRC_DIR}"/klippy
 # Compile C files
 sudo -u "${BASE_USER}" "${KLIPPER_PYTHON_DIR}"/bin/python "${KLIPPER_SRC_DIR}"/klippy/chelper/__init__.p
 
