@@ -88,7 +88,6 @@ ls -la /usr/local/bin
 
 # Install RatOS Configuration
 sudo -u "${BASE_USER}" /home/"${BASE_USER}"/printer_data/config/RatOS/scripts/ratos-install.sh
-sudo update-rc.d ratos defaults
 
 # Install RatOS Kinematics
 sudo -u "${BASE_USER}" /home/"${BASE_USER}"/ratos-kinematics/ratos-setup.sh
