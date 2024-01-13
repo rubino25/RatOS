@@ -16,16 +16,35 @@ curl --silent 'http://localhost:3000/configure/api/trpc/kill' &> /dev/null
 
 retries=0
 while [ "$(pgrep -f -c "ratos-configurator")" -gt 0 ]; do
-    if [ $retries -lt 10 ]; then
+    if [ $retries -gt 10 ]; then
         echo "Configurator did not stop, killing it..."
         pkill -f "ratos-configurator"
-        break
+        if [ $retries -gt 12 ]; then
+            echo "Configurator cannot be killed.. :("
+            break
+        fi
     fi
-    echo "Waiting for configurator to stop..."
+    echo "Waiting for configurator to stop... ${retries}s passed"
     sleep 1
     retries=$((retries + 1))
 done
 
 echo "Configurator stopped.."
 
-
+if [ "$(pgrep -f -c "KlipperScreen")" -gt 0 ]; then
+    echo "Stopping KlipperScreen"
+    retries=0
+    while [ "$(pgrep -f -c "KlipperScreen")" -gt 0 ]; do
+        if [ $retries -gt 10 ]; then
+            echo "KlipperScreen did not stop, killing it..."
+            pkill -f "KlipperScreen"
+            if [ $retries -gt 12 ]; then
+                echo "KlipperScreen cannot be killed.. :("
+                break
+            fi
+        fi
+        echo "Waiting for KlipperScreen to stop... ${retries}s passed"
+        sleep 1
+        retries=$((retries + 1))
+    done
+fi
