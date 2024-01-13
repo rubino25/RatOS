@@ -48,3 +48,6 @@ if [ "$(pgrep -f -c "KlipperScreen")" -gt 0 ]; then
         retries=$((retries + 1))
     done
 fi
+
+echo "List out all running processes"
+ps aux
