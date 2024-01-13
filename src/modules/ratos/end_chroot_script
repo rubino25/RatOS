@@ -13,6 +13,19 @@ sudo -u ${BASE_USER} /home/${BASE_USER}/printer_data/config/RatOS/scripts/ratos-
 
 echo "Stopping the configurator"
 curl --silent 'http://localhost:3000/configure/api/trpc/kill' & > /dev/null
+
+retries=0
+while [ "$(pgrep -f -c "ratos-configurator")" -gt 0 ]; do
+    if [ $retries -lt 10 ]; then
+        echo "Configurator did not stop, killing it..."
+        pkill -f "ratos-configurator"
+        break
+    fi
+    echo "Waiting for configurator to stop..."
+    sleep 1
+    retries=$((retries + 1))
+done
+
 echo "Configurator stopped.."
 
 
