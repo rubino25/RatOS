@@ -30,13 +30,6 @@ When the RatOS image has been written to the SD card, insert the SD card into th
 
 Alternatively, if you're using a pi with Ethernet, you can use an ethernet cable instead.
 
-:::danger Internet Connection is required on first run!
-There's currently a limitation in RatOS that **requires internet access** on first run. Klipper cannot compile it's c_helper functions without being connected to the internet.
-If you proceed through board flashing without the pi connected to the internet, you'll get an error saying your board is not responsive, even after it's been flashed succesfully.
-
-After succesfull flashing and detection in the configurator, an internet connection is nolonger required for operation, nor subsequent flashing.
-:::
-
 ## Preparing your control board
 
 :::info

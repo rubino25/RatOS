@@ -77,6 +77,11 @@ echo_green "Installing klippy Python Dependencies ..."
 sudo -u "${BASE_USER}" "${KLIPPER_PYTHON_DIR}"/bin/pip install -r "${KLIPPER_SRC_DIR}"/"${KLIPPER_PYENV_REQ}"
 popd &> /dev/null || exit 1
 
+# Compile python files
+sudo -u "${BASE_USER}" "${KLIPPER_PYTHON_DIR}"/bin/python -m compileall klippy
+# Compile C files
+sudo -u "${BASE_USER}" "${KLIPPER_PYTHON_DIR}"/bin/python klippy/chelper/__init__.p
+
 
 ## Enable systemd service
 systemctl_if_exists enable klipper.service
