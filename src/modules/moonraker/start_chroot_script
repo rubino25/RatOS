@@ -67,7 +67,7 @@ pushd "/home/${BASE_USER}/moonraker" &> /dev/null || exit 1
 echo_green "Launch moonraker install routine ..."
 sudo -u "${BASE_USER}" ./scripts/install-moonraker.sh -z -x
 echo_green "Install moonraker speedups ..."
-sudo -u "${BASE_USER}" ~/moonraker-env/bin/pip install -r ~/moonraker/scripts/moonraker-speedups.txt
+sudo -u "${BASE_USER}" /home/"${BASE_USER}"/moonraker-env/bin/pip install -r /home/"${BASE_USER}"/moonraker/scripts/moonraker-speedups.txt
 
 ## Step 9: Install policykit rules
 echo_green "Install moonrakers PolicyKit Rules ..."
