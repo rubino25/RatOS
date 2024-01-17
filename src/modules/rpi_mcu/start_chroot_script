@@ -14,6 +14,8 @@ echo "flashing rpi-mcu"
 cp -f /home/pi/printer_data/config/RatOS/boards/rpi/firmware.config /home/pi/klipper/.config
 make olddefconfig
 make clean
+# Reset ownership so make flash doesn't complain
+chown pi:pi -R /home/pi/klipper
 make flash
 popd
 
