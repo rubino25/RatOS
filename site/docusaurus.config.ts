@@ -1,11 +1,13 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
+import type {Config} from '@docusaurus/types';
+import type {Options, ThemeConfig} from '@docusaurus/preset-classic';
+import {themes} from "prism-react-renderer";
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/nightOwl");
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.nightOwl;
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
     title: "RatOS",
     tagline: "The easy way to run Klipper on your 3D printer",
     url: "https://os.ratrig.com",
@@ -19,7 +21,6 @@ const config = {
     presets: [
         [
             "@docusaurus/preset-classic",
-            /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
                     sidebarPath: require.resolve("./sidebars.js"),
@@ -49,12 +50,11 @@ const config = {
                     trackingID: "G-NQB0MHKGLP",
                     anonymizeIP: true,
                 },
-            }),
+            }) satisfies Options,
         ],
     ],
     plugins: [require.resolve("docusaurus-plugin-image-zoom")],
     themeConfig:
-        /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             image: "img/site-banner.png?bust=1",
             algolia: {
@@ -125,9 +125,9 @@ const config = {
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
-                additionalLanguages: ["django", "properties"],
+                additionalLanguages: ["bash", "python", "gcode", "properties"],
             },
-        }),
-};
+        }) satisfies ThemeConfig,
+} satisfies Config;
 
 module.exports = config;
