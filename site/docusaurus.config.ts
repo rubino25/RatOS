@@ -29,8 +29,12 @@ const config: Config = {
                     lastVersion: "current",
                     versions: {
                         current: {
-                            label: "2.0.x",
+                            label: "2.1.x",
                             path: "",
+                        },
+                        "2.0.x": {
+                            label: "2.0.x",
+                            path: "/2.0.x",
                         },
                         "1.2.x": {
                             label: "1.2.x",
