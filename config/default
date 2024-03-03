@@ -22,6 +22,7 @@ get_img_name() {
     fi
 }
 
+BASE_BOOT_MOUNT_PATH=boot
 DIST_VERSION="$(get_version)"
 BASE_ZIP_IMG="$(get_img_name)"
 DIST_NAME="RatOS"
