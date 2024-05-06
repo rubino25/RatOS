@@ -64,10 +64,10 @@ fi
 check_install_pkgs i2c-tools
 
 # Step 10: Disable bluetooth and related services
-echo_green "Disabling Bluetooth related services..."
-systemctl_if_exists disable hciuart.service
-systemctl_if_exists disable bluetooth.service
-systemctl_if_exists disable bluealsa.service
+#echo_green "Disabling Bluetooth related services..."
+#systemctl_if_exists disable hciuart.service
+#systemctl_if_exists disable bluetooth.service
+#systemctl_if_exists disable bluealsa.service
 
 
 # Step 11: Increase swapfile size
