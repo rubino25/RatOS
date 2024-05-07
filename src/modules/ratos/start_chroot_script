@@ -23,7 +23,6 @@ gitclone RATOS_CONFIG RatOS
 gitclone RATOS_THEME .theme
 pushd "/home/${BASE_USER}"
 gitclone RATOS_CONFIGURATOR ratos-configurator
-gitclone RATOS_KINEMATICS ratos-kinematics
 popd
 popd
 
@@ -88,9 +87,6 @@ ls -la /usr/local/bin
 
 # Install RatOS Configuration
 sudo -u "${BASE_USER}" /home/"${BASE_USER}"/printer_data/config/RatOS/scripts/ratos-install.sh
-
-# Install RatOS Kinematics
-sudo -u "${BASE_USER}" /home/"${BASE_USER}"/ratos-kinematics/ratos-setup.sh
 
 # Create variant file
 echo "${BASE_DISTRO}" > /etc/"${BASE_DISTRO}"-variant
