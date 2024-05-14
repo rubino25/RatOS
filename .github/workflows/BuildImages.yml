@@ -57,9 +57,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: repository/src/workspace/aptcache
-          key: ${{ runner.os }}-apt-get-${{ hashFiles('**/apt.txt') }}
+          key: ${{ matrix.config }}-apt-get-${{ hashFiles('**/apt.txt') }}
           restore-keys: |
-            ${{ runner.os }}-apt-get-
+            ${{ matrix.config }}-apt-get-
 
       - name: Build image
         id: build
