@@ -53,6 +53,14 @@ jobs:
       matrix:
         config: ${{ fromJson(needs.setup.outputs.matrix) }}
     steps:
+      - name: Cache aptitude
+        uses: actions/cache@v2
+        with:
+          path: repository/src/workspace/aptcache
+          key: ${{ runner.os }}-apt-get-${{ hashFiles('**/apt.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-apt-get-
+
       - name: Build image
         id: build
         uses: mainsail-crew/MainsailOS-actions/build-image@master

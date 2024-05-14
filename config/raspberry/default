@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Shebang for better file detection
 
-BASE_IMAGE_ENLARGEROOT=6500
+BASE_IMAGE_ENLARGEROOT=10500
 BASE_IMAGE_RESIZEROOT=600
 # Compress not needed due compression done in workflow
 BASE_RELEASE_COMPRESS=no
