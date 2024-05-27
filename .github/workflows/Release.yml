@@ -52,7 +52,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: "v2.x"
+          ref: "v2.1.x"
           fetch-depth: 0
 
       - name: Get latest tag
@@ -96,7 +96,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: v2.x
+          ref: v2.1.x
 
       - name: Create Matrix
         id: set-matrix
@@ -129,7 +129,7 @@ jobs:
         uses: mainsail-crew/MainsailOS-actions/build-image@master
         with:
           config: ${{ matrix.config }}
-          build-ref: v2.x
+          build-ref: v2.1.x
 
       - name: Upload failed Logfile
         if: failure()
