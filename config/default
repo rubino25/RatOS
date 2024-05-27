@@ -22,11 +22,13 @@ get_img_name() {
     fi
 }
 
+BASE_BOOT_MOUNT_PATH=boot
 DIST_VERSION="$(get_version)"
 BASE_ZIP_IMG="$(get_img_name)"
 DIST_NAME="RatOS"
 BASE_IMAGE_ENLARGEROOT=6500
 BASE_IMAGE_RESIZEROOT=600
+BASE_APT_CLEAN=no
 
 # export Variables
 export DIST_NAME
@@ -34,3 +36,5 @@ export DIST_VERSION
 export BASE_ZIP_IMG
 export BASE_IMAGE_ENLARGEROOT
 export BASE_IMAGE_RESIZEROOT
+export BASE_BOOT_MOUNT_PATH
+export BASE_APT_CLEAN
