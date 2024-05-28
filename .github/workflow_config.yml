@@ -24,6 +24,7 @@ buildtest:
   # Raspberry Pi OS based images
   - raspberry/rpi32
   # - raspberry/rpi64
+  - armbian/CB1
 
 # This is used to setup release build chain.
 # Each entry will be used in setup matrix for releases
@@ -37,3 +38,4 @@ release:
   # Raspberry Pi OS based images
   - raspberry/rpi32
   # - raspberry/rpi64
+  - armbian/CB1
