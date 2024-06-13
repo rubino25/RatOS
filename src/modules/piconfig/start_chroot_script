@@ -25,6 +25,12 @@ echo_green "Copying temporary file ..."
 unpack /filesystem/tmp /tmp root
 
 echo_green "Merge RatOS configuration with default config.txt ..."
+
+if [[ ! -f "${PICONFIG_CONFIG_TXT_FILE}" ]]; then
+    echo_red "Default config.txt not found. Putting in an empty one ..."
+    touch "${PICONFIG_CONFIG_TXT_FILE}"
+fi
+
 # Step 2: Copy default config to "/tmp"
 cp "${PICONFIG_CONFIG_TXT_FILE}" /tmp
 
