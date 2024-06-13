@@ -49,6 +49,10 @@ cp /tmp/config.new "${PICONFIG_CONFIG_TXT_FILE}"
 # Step 6: Cleanup
 rm -f /tmp/*config*
 
+if [[ ! -f "${PICONFIG_CMDLINE_TXT_FILE}" ]]; then
+    echo_red "Default cmdline.txt not found. Putting in an empty one ..."
+    touch "${PICONFIG_CMDLINE_TXT_FILE}"
+fi
 # Step 7: Copy default cmdline.txt to backup file
 cp "${PICONFIG_CMDLINE_TXT_FILE}" "${PICONFIG_CMDLINE_BAK_FILE}"
 
