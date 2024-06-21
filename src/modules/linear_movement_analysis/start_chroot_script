@@ -21,4 +21,4 @@ ratos extensions register klipper "linear_movement_analysis" "${EXTENSION_PATH}/
 
 echo_green "Installing matplotlib for python 2"
 
-/home/"${BASE_USER}"/klippy-env/bin/pip install -v matplotlib
+sudo -u "${BASE_USER}" /home/"${BASE_USER}"/klippy-env/bin/pip install -v matplotlib
