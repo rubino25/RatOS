@@ -20,7 +20,7 @@ echo_green "Installing KlipperScreen"
 cd /home/pi
 gitclone KLIPPERSCREEN KlipperScreen
 cd /home/pi/KlipperScreen
-sudo -u ${BASE_USER} ./scripts/KlipperScreen-install.sh
+sudo -u "${BASE_USER}" NETWORK="skipnetworkmanagerinstall" ./scripts/KlipperScreen-install.sh
 
 # Mute output from klipperscreen service
 sudo sed -i 's/\[Service\]/\[Service\]\n\StandardOutput=null\nStandardError=null/g' /etc/systemd/system/KlipperScreen.service
