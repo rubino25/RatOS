@@ -120,13 +120,7 @@ jobs:
 
   release:
     name: Create Release
-    needs:
-      [
-        ratos-push-version-number,
-        configurator-push-version-number,
-        configuration-push-version-number,
-        theme-push-version-number,
-      ]
+    needs: ratos-push-version-number
     runs-on: ubuntu-latest
     outputs:
       id: ${{ steps.create-release.outputs.id }}
