@@ -40,3 +40,4 @@ release:
   # Raspberry Pi OS based images
   - raspberry/rpi32
   # - raspberry/rpi64
+  - raspberry/opicm4
