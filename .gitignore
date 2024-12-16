@@ -20,3 +20,6 @@ build.log
 .DS_Store
 *~
 .*.swp
+
+# Ignore built docs
+docs

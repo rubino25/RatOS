@@ -17,7 +17,9 @@ const config: Config = {
     favicon: "img/favicon.png",
     organizationName: "Rat-OS", // Usually your GitHub org/user name.
     projectName: "RatOS", // Usually your repo name.
-
+	future: {
+        experimental_faster: true,
+    },
     presets: [
         [
             "@docusaurus/preset-classic",
@@ -57,7 +59,19 @@ const config: Config = {
             }) satisfies Options,
         ],
     ],
-    plugins: [require.resolve("docusaurus-plugin-image-zoom")],
+    plugins: [
+        require.resolve("docusaurus-plugin-image-zoom"),
+        async function tailwindPlugin(): Promise<any> {
+            return {
+                name: 'docusaurus-tailwindcss',
+                configurePostCss(postcssOptions: any) {
+                    postcssOptions.plugins.push(require('tailwindcss'));
+                    postcssOptions.plugins.push(require('autoprefixer'));
+                    return postcssOptions;
+                },
+            };
+        },
+    ],
     themeConfig:
         ({
             image: "img/site-banner.png?bust=1",

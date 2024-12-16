@@ -1,4 +1,129 @@
+<div className="markdown">
 # Changelog
+
+## RatOS 2.1
+RatOS now simplifies the klipper configuration process by automatically generating and updating the `RatOS.cfg` file based on your selections in the configurator. This file becomes the sole inclusion in `printer.cfg`, eliminating the need for managing multiple includes or modifying lines of code. RatOS intelligently recognizes your hardware and adjusts the configuration and macros accordingly.
+
+Should you make any changes to your hardware, RatOS will simply update `RatOS.cfg` and display the changes for your review. This ensures that your have more confidence in tinkering, and can try out new things quickly without worrying about configuration.
+
+### Features
+* Point and click klipper config generation
+* The wizard will now ask you about your hardware configuration
+    * Select from 12 printers and 32 control boards
+    * Configure toolhead hardware (up to 2 toolheads per printer)
+    * Support for multiple instances of 12 supported toolboards.
+    * Printer configuration
+    * Motor / driver configuration
+        * Reconfigurable motor slot allocations, you decide which slot is used for which axis.
+        * Supports 24V, 36V, 48V, 56V, and 60V setups
+        * Supports a variety of 2130, 2209, 2240, 2160 and 5160 drivers.
+        * Supports a variety of stepper motors, including a "generic" stepper using klipper defaults.
+        * Current adjustment
+        * Automatically applied tuning presets for known configurations.
+* RatOS.cfg does not use pin aliases, the pins match the board's pinout diagram.
+
+<div className="grid grid-cols-2 gap-1 [&_img]:!m-0 mb-6">
+<div>![RatOS 2.1 Printer Selection](https://github.com/Rat-OS/RatOS/assets/751171/56fca6f5-2125-4d88-a8df-65add61c9054)</div>
+<div>![RatOS 2.1 Hardware Configuration](https://github.com/Rat-OS/RatOS/assets/751171/3bca093d-cc2e-4487-9287-a92da7577367)</div>
+<div>![RatOS 2.1 Board Selection](https://github.com/Rat-OS/RatOS/assets/751171/9b4d0cf5-f5e3-45e6-ba1f-04ea4cef599b)</div>
+<div>![RatOS 2.1 Advanced Stepper Configuration](https://github.com/Rat-OS/RatOS/assets/751171/bccc03ca-1f9c-461d-a9d0-e3f8f3b2a523)</div>
+</div>
+
+### Expanding the configurator - beyond the wizard
+RatOS 2.1 has evolved into a comprehensive application that interfaces with Klipper and Moonraker. It is set to expand its capabilities with various tools aimed at enhancing interactive analysis and calibration. The initial offerings will include VAOC (Visually Assisted Offset Calibration) and RAT (Realtime Analysis Tool), promising to elevate the user experience further.
+
+#### Realtime Analysis Tool (RAT)
+Power spectral density graphs, live, real-time, in your browser!
+
+![ratos-minion local_configure_wizard_step=1(1080p) (4)](https://github.com/Rat-OS/RatOS/assets/751171/d8703630-98d3-443b-9f76-39de97c2a037)
+
+- [Create your own macros for analysing different aspects of your printer](https://youtu.be/_wU6VtUO7Ks).
+- [Hunt down sources of mechanical issues using the Oscillator by monitoring the realtime PSD while touching different parts of your motion system.](https://youtu.be/Tdz_CtPEFzY)
+- Works on phones, use it like a Star Trek Tricorder.
+- Supplies two new g-code commands, `OSCILLATE` and `GENERATE_RESONANCES`.
+
+### IDEX Support
+Helge Keck's outstanding contributions to RatOS 2.1 have made all RatOS macros fully IDEX compatible, offering numerous advantages compared to other implementations.
+
+#### Toolshift
+RatOS features an integrated gcode postprocessor compatible with PrusaSlicer, OrcaSlicer, and SuperSlicer. It leverages the rapid toolshift macros for synchronous toolhead swapping and advancing to the subsequent print position in just two swift actions. This results in almost instantaneous tool changes, drastically cutting down on the time typically required for purge towers, and may even render them unnecessary. Additionally, Toolshift is customizable to execute a hotend purge during a tool change if the upcoming toolhead has been inactive past a predefined duration.
+
+* Intelligent priming / purging
+* [Single toolhead + spool join mode](https://www.youtube.com/watch?v=TDj1bnmQkBQ)
+* Multi color mode
+* Copy/Mirror mode
+* Experimental auto centering of print on the build plate for copy and mirror mode
+* Toolhead remapping
+* IDEX aware `SET_PRESSURE_ADVANCE` with toolhead syncing capabilities
+* Automatic toolhead deactivation after last use in print.
+* Fan synchronization
+* Optional automatic toolhead standby
+* Retraction control
+* Fully automated z-offset calibration before printing
+* Live speed and acceleration control while printing
+
+![IDEX Live Configuration Macro](https://github.com/Rat-OS/RatOS/assets/751171/e2359e5b-fa0c-4051-bc57-1aba74be2d29)
+
+#### Visually Assisted Offset Calibration (VAOC)
+RatOS features a Visually Assisted Offset Calibration interface, complete with z offset probe support, making toolhead offset calibration a breeze, blazing fast and extremely precise.
+![VAOC](https://github.com/Rat-OS/RatOS/assets/751171/17ca17b7-f960-474c-836e-1ed07c93bc09)
+
+### Single Toolhead Hybrid CoreXY support
+RatOS is equipped with specialized Hybrid CoreXY kinematics, which include the capability to operate two additional Cartesian motors on the Y-axis. This feature significantly enhances performance scaling in CoreXY configurations. By carefully tensioning the belts, users can achieve more than a twofold increase in the recommended shaper accelerations for the Y-axis.
+
+### Macros: new built-in features
+* Beacon contact auto calibration
+* [Automatic hotend/nozzle thermal expansion calibration (Beacon Contact or Z offset probe)](https://www.youtube.com/watch?v=bknUX7KBBfg)
+* Primeblob is now significantly faster, takes less space and adapts to nozzle size.
+* Sensorless homing supported for all driver types.
+* Toolhead temperature offsets.
+* LED Status effects
+* Filament sensor support (on-toolhead, off-toolhead or both)
+        * Up to 3 sensor in series: on-toolhead switch sensor, on-toolhead motion sensor, off-toolhead bowden switch sensor
+        * Insert, runout and clog detection
+	* [Automatic loading / unloading with on-toolhead sensor](https://www.youtube.com/watch?v=GludTdr6n-U)
+	* Automatic print resume on insert
+	* Optional purge before unload or after load
+	* Sanity checks before print starts, checks for filament presence
+	* Filament grabbing on insert even if the hotend is cold
+	* Filament status color in Mainsail
+* Hotend type and nozzle aware tip forming when unloading
+* New calibratron macros, PID tuning and pa tower.
+* Tons of user adjustable macro variables for customization and further tuning.
+* Many small usability improvements and sanity checks.
+
+
+### Adaptive Meshing and Priming
+Adaptive meshing and priming is now officially out of beta and enabled by default. Beacon adaptive priming and full IDEX support has been added.
+
+### New boards
+BTT Kraken
+BTT Manta M8P V2.0
+BTT Manta M5P
+BTT EBB SB2240 STM32
+BTT EBB SB2240 RP2040
+BTT EBB SB2209 STM32
+BTT EBB SB2209 RP2040
+BTT SKR v1.4
+BTT SKR v1.4 Turbo
+Fysetc Spider v2.2
+LDO Leviathan v1.2
+
+### Minor changes and improvements
+* Primeline has been removed.
+* Use ENABLE_DEBUG to log additional information, download all debug information by using the debug zip link in the RatOS Configurator.
+* User hooks are now supplied with the full params of the calling macro
+* `ratos` CLI tool for utility functions, advanced usage and third party integrations. Use it to regenerate configuration, flash connected boards, tail logs, register / unregister / symlink klippy and moonraker extensions and more.
+
+### Backwards compatibility
+- RatOS 2.0 configurations will still work in 2.1 (As for RC2 this is unknown.. will need testing)
+- Generating a new configuration will require that you reflash your toolboard via the configurator.
+
+Huge shutout to @HelgeKeck for his tireless work, and @3dprintpt for all the new boards and wiring diagrams!
+
+<div className="relative">
+	<div className="w-auto border-t border-zinc-700 m-12" />
+</div>
 
 ## RatOS V2.0
 
@@ -70,9 +195,18 @@
 - Configurator now correctly restarts on updates.
 - Since the initial flashing is now done via the configurator, the issues with broken firmware should now be eliminated.
 
+<div className="relative">
+	<div className="w-auto border-t border-zinc-700 m-12" />
+</div>
+
 ## RatOS V1.2
 
 This release adds a wifi connection configurator and hotspot functionality so users no longer have to edit the wpa-supplicant files, the syntax of which has been challenging for many. The hotspot also enables printing in areas with no wifi or ethernet connectivity.
+
+
+<div className="relative">
+	<div className="w-auto border-t border-zinc-700 m-12" />
+</div>
 
 ## RatOS V1.1
 
@@ -148,6 +282,11 @@ Be aware that this comes with disadvantage of less precise motion, and it will n
 #### New Templates (Optional)
 
 RatOS v1.1 comes with new improved and reorganized templates. If you want the new templates but don't want to reflash your Pi, you can migrate manually. To do so, start by making a backup of your printer.cfg (download it, and put it somewhere safe), then replace printer.cfg with the contents of config/templates/\[your-printer\]-printer.template.cfg. Go through your new printer.cfg and use your old config as a reference for the values you need. You can copy / paste the klipper config block at the bottom to your new printer.cfg to retain all the settings you've saved via `SAVE_CONFIG`.
+
+
+<div className="relative">
+	<div className="w-auto border-t border-zinc-700 m-12" />
+</div>
 
 ## RatOS V1.0
 
@@ -229,3 +368,5 @@ If the section is not present in your printer.cfg the default values will be use
 - `END_PRINT` now has 2 hooks: `_END_PRINT_AFTER_HEATERS_OFF` and `_END_PRINT_PARK`. You can override these in your printer.cfg to further customize the way your END_PRINT macro behaves.
 - `END_PRINT` and PAUSE now moves to a safe Z distance instead of always moving the same distance which could lead to errors.
 - `M600` is now supported.
+
+</div>
