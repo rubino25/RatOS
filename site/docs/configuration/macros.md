@@ -48,45 +48,51 @@ Not all of the available variables are listed in printer.cfg by default. If you 
 Below you'll find a list of the available variables and what they do.
 
 ## Printing
+
 `[gcode_macro RatOS]`
 
-| Name                        | Possible Values | Default | Description                                                                         |
-| --------------------------- | --------------- | ------- | ----------------------------------------------------------------------------------- |
-| variable_relative_extrusion | True / False    | False   | Controls which extrusion mode START_PRINT ends in. Which value you use here depends on your slicer configuration, in other words this variable should always correspond to the extrusion mode setting in your slicer. It is recommended to configure your slicer for relative extrusion and set this variable to True. |
-| variable_force_absolute_position | True / False    | False   | Forces absolute positioning before the print starts. |
+| Name                             | Possible Values | Default | Description                                                                                                                                                                                                                                                                                                            |
+| -------------------------------- | --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| variable_relative_extrusion      | True / False    | False   | Controls which extrusion mode START_PRINT ends in. Which value you use here depends on your slicer configuration, in other words this variable should always correspond to the extrusion mode setting in your slicer. It is recommended to configure your slicer for relative extrusion and set this variable to True. |
+| variable_force_absolute_position | True / False    | False   | Forces absolute positioning before the print starts.                                                                                                                                                                                                                                                                   |
 
 ## Speed
+
 `[gcode_macro RatOS]`
 
-| Name                        | Possible Values | Default | Description                                                                         |
-| --------------------------- | --------------- | ------- | ----------------------------------------------------------------------------------- |
-| variable_macro_travel_speed | number          | 300     | XY Travel speed to use for gcode moves in RatOS Macro's in mm/s.                    |
-| variable_macro_travel_accel | number          | 2000    | XY Travel acceleration to use for gcode moves in RatOS Macro's in mm/s².            |
-| variable_macro_z_speed      | number          | 15      | Z Travel speed to use for gcode moves in RatOS Macro's in mm/s.                     |
+| Name                        | Possible Values | Default | Description                                                              |
+| --------------------------- | --------------- | ------- | ------------------------------------------------------------------------ |
+| variable_macro_travel_speed | number          | 300     | XY Travel speed to use for gcode moves in RatOS Macro's in mm/s.         |
+| variable_macro_travel_accel | number          | 2000    | XY Travel acceleration to use for gcode moves in RatOS Macro's in mm/s². |
+| variable_macro_z_speed      | number          | 15      | Z Travel speed to use for gcode moves in RatOS Macro's in mm/s.          |
 
 ## Homing
+
 `[gcode_macro RatOS]`
 
-| Name                          | Possible Values           | Default     | Description                                                                         |
-| ----------------------------- | ------------------------- | ----------- | ----------------------------------------------------------------------------------- |
-| variable_z_probe              | "static" / "stowable"     | "static"    | z-probe type                                                                        |
-| variable_homing               | "endstops" / "sensorless" | "endstops"  | axis homing method                                                                  |
-| variable_safe_home_x          | "middle" / number         | "middle"    | The x coordinate for where to return the toolhead to when homing Z                  |
-| variable_safe_home_y          | "middle" / number         | "middle     | The y coordinate for where to return the toolhead to when homing Z                  |
-| variable_homing_z_hop         | number                    | 15          | How much to raise the toolhead after homing Z. Probe configs may change this value. |
-| variable_driver_type_x        | string                    | "tmc2209"   | The driver type used on X. Used to restore current after sensorless homing          |
-| variable_driver_type_y        | string                    | "tmc2209"   | The driver type used on X. Used to restore current after sensorless homing          |
-| variable_sensorless_x_current | number                    | 0.4         | stepper driver run current for sensorless x-homing                                  |
-| variable_sensorless_y_current | number                    | 0.4         | stepper driver run current for sensorless y-homing                                  |
+| Name                          | Possible Values           | Default    | Description                                                                         |
+| ----------------------------- | ------------------------- | ---------- | ----------------------------------------------------------------------------------- |
+| variable_z_probe              | "static" / "stowable"     | "static"   | z-probe type                                                                        |
+| variable_homing               | "endstops" / "sensorless" | "endstops" | axis homing method                                                                  |
+| variable_safe_home_x          | "middle" / number         | "middle"   | The x coordinate for where to return the toolhead to when homing Z                  |
+| variable_safe_home_y          | "middle" / number         | "middle    | The y coordinate for where to return the toolhead to when homing Z                  |
+| variable_homing_z_hop         | number                    | 15         | How much to raise the toolhead after homing Z. Probe configs may change this value. |
+| variable_driver_type_x        | string                    | "tmc2209"  | The driver type used on X. Used to restore current after sensorless homing          |
+| variable_driver_type_y        | string                    | "tmc2209"  | The driver type used on X. Used to restore current after sensorless homing          |
+| variable_sensorless_x_current | number                    | 0.4        | stepper driver run current for sensorless x-homing                                  |
+| variable_sensorless_y_current | number                    | 0.4        | stepper driver run current for sensorless y-homing                                  |
 
 ## Heating
+
 `[gcode_macro RatOS]`
 
-| Name                                       | Possible Values | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------------ | --------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| variable_preheat_extruder                  | True / False    | True    | Enables or disables preheating of the nozzle to 150 degrees during the START_PRINT macro. There are several benefits to preheating the nozzle. 1) Gives the bed additional time to diffuse the heat. 2) Softens plastic that may be stuck in the nozzle so it doesn't block your probe from triggering. 3) If using a non thermally compensated inductive probe, it makes the temperature and thus the offset of the probe more predictable and consistent. |
-| variable_preheat_extruder_temp             | Number          | 150     | The temperature to preheat the extruder to, to soften the material at the nozzle tip                                                                                                                                                                                                                                                                                                                                                                        |
+| Name                           | Possible Values | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------ | --------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| variable_preheat_extruder      | True / False    | True    | Enables or disables preheating of the nozzle to 150 degrees during the START_PRINT macro. There are several benefits to preheating the nozzle. 1) Gives the bed additional time to diffuse the heat. 2) Softens plastic that may be stuck in the nozzle so it doesn't block your probe from triggering. 3) If using a non thermally compensated inductive probe, it makes the temperature and thus the offset of the probe more predictable and consistent. |
+| variable_preheat_extruder_temp | Number          | 150     | The temperature to preheat the extruder to, to soften the material at the nozzle tip                                                                                                                                                                                                                                                                                                                                                                        |
+
 ## Bed Mesh Calibration
+
 `[gcode_macro RatOS]`
 
 | Name                        | Possible Values | Default |
@@ -103,17 +109,19 @@ Whether or not to calibrate a bed mesh before each print. If you prefer calibrat
 Use this variable to set name for the bed_mesh profile that RatOS calibrate and loads. If `variable_calibrate_bed_mesh` is `False` you must set this variable to the profile name you wish to load, or no bed mesh will be loaded. If variable_calibrate_bed_mesh is `True` and this variable isn't set, RatOS will use `ratos` as the profile name.
 
 ## Nozzle Priming
+
 `[gcode_macro RatOS]`
 
-| Name                            | Possible Values                   | Default     | Description                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------- | --------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| variable_nozzle_priming         | "primeblob" / False | "primeblob" | Whether or not to prime the nozzle during the START_PRINT macro. "primeblob" will put a small blob at the edge of the bed that is intended to wrap around the nozzle, then lifts the toolhead out of it while extruding a small line, effective for cleaning the nozzle and it's easy to clean up. |
-| variable_nozzle_prime_start_x   | "min" / "max" / number            | "max"       | Where to place the primeline or blob in X. "min" starts the blob or line at x=0 + some safety margin. "max" starts the blob or line at x=max - some safety margin. If set to a number, that number will be used as the starting x coordinate of the line or blob.                                                                                                           |
-| variable_nozzle_prime_start_y   | "min" / "max" / number            | "min"       | Where to place the primeline or blob in Y. "min" starts the blob or line at y=0 + some safety margin. "max" starts the blob or line at y=max - some safety margin. If set to a number, that number will be used as the starting y coordinate of the line or blob.                                                                                                           |
-| variable_nozzle_prime_direction | "auto" / "forwards" / "backwards  | "auto"      | The direction to draw the line or blob in, if "backwards" the toolhead will move toward the front of the printer, if "forwards" it will move towards the back. When set to "auto" it will move towards the middle regardless of `variable_nozzle_prime_start_y`.                                                                                                            |
-| variable_nozzle_prime_bridge_fan | number  | 102      | priming fan speed 0-255                                                                                                            |
+| Name                             | Possible Values                  | Default     | Description                                                                                                                                                                                                                                                                                        |
+| -------------------------------- | -------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| variable_nozzle_priming          | "primeblob" / False              | "primeblob" | Whether or not to prime the nozzle during the START_PRINT macro. "primeblob" will put a small blob at the edge of the bed that is intended to wrap around the nozzle, then lifts the toolhead out of it while extruding a small line, effective for cleaning the nozzle and it's easy to clean up. |
+| variable_nozzle_prime_start_x    | "min" / "max" / number           | "max"       | Where to place the primeline or blob in X. "min" starts the blob or line at x=0 + some safety margin. "max" starts the blob or line at x=max - some safety margin. If set to a number, that number will be used as the starting x coordinate of the line or blob.                                  |
+| variable_nozzle_prime_start_y    | "min" / "max" / number           | "min"       | Where to place the primeline or blob in Y. "min" starts the blob or line at y=0 + some safety margin. "max" starts the blob or line at y=max - some safety margin. If set to a number, that number will be used as the starting y coordinate of the line or blob.                                  |
+| variable_nozzle_prime_direction  | "auto" / "forwards" / "backwards | "auto"      | The direction to draw the line or blob in, if "backwards" the toolhead will move toward the front of the printer, if "forwards" it will move towards the back. When set to "auto" it will move towards the middle regardless of `variable_nozzle_prime_start_y`.                                   |
+| variable_nozzle_prime_bridge_fan | number                           | 102         | priming fan speed 0-255                                                                                                                                                                                                                                                                            |
 
 ## Filament loading/unloading
+
 `[gcode_macro RatOS]`
 
 | Name                            | Possible Values | Default | Description                                                                       |
@@ -124,6 +132,7 @@ Use this variable to set name for the bed_mesh profile that RatOS calibrate and 
 | variable_filament_load_speed    | number          | 10      | How fast to extrude the `filament_load_length` in mm/s                            |
 
 ## Parking
+
 `[gcode_macro RatOS]`
 
 | Name                               | Possible Values             | Default   | Description                                                                 |
@@ -137,6 +146,7 @@ Use this variable to set name for the bed_mesh profile that RatOS calibrate and 
 | variable_pause_print_park_in       | "back" / "center" / "front" | "back"    | Where to park the toolhead when pausing a print.                            |
 
 ## Toolhead configuration
+
 `[gcode_macro T0]`
 
 | Name                                                | Possible Values   | Default | Description                                                               |
@@ -165,6 +175,7 @@ Use this variable to set name for the bed_mesh profile that RatOS calibrate and 
 | variable_parking_position                           | number            | 0       | Toolhead parking x-position.                                              |
 
 ## VAOC
+
 `[gcode_macro _VAOC]`
 
 | Name                                | Possible Values | Default | Description                                                             |
@@ -179,26 +190,28 @@ Use this variable to set name for the bed_mesh profile that RatOS calibrate and 
 | variable_toolchange_travel_accel    | number          | 5000    | XY travel move sccelerations.                                           |
 
 ## IDEX
+
 `[gcode_macro RatOS]`
 
-| Name                                 | Possible Values | Default | Description                                                                                |
-| ------------------------------------ | --------------- | ------- | ------------------------------------------------------------------------------------------ |
-| variable_auto_center_subject         | True / False    | False   | Experimental auto centering subject on build plate for copy and mirror mode.               |
+| Name                                 | Possible Values | Default | Description                                                                               |
+| ------------------------------------ | --------------- | ------- | ----------------------------------------------------------------------------------------- |
+| variable_auto_center_subject         | True / False    | False   | Experimental auto centering subject on build plate for copy and mirror mode.              |
 | variable_toolchange_zhop             | number          | 2.0     | Toolshift z-hop.                                                                          |
 | variable_toolchange_zspeed           | number          | 25      | Toolshift z-hop speed.                                                                    |
-| variable_toolchange_sync_fans        | True / False    | False   | Synchronizes fan speeds while printing.                                                    |
-| variable_toolchange_combined_zhop    | True / False    | False   | Combines z-hop and retract/deretract moves for toolshifts.                                 |
-| variable_toolchange_travel_speed     | number          | 300     | Toolshift travel speed.                                                                    |
-| variable_toolchange_travel_accel     | number          | 5000    | Toolshift travel acceleration.                                                             |
-| variable_toolchange_extrusion        | number          | 2.0     | Toolshift deretraction.                                                                    |
-| variable_toolchange_retraction       | number          | 2.0     | Toolshift retraction.                                                                      |
-| variable_toolchange_feedrate         | number          | 7200    | Extruder feedrate for retract/deretract moves for toolshifts.                              |
-| variable_toolchange_prepurging_timer | number          | 0       | Prepurge some filament before going back to the buildplate after X seconds of inactivity.  |
-| variable_toolchange_purge            | number          | 25      | MM of filament that gets prepruged in case the timer has been configured,                  |
-| variable_toolchange_standby_temp     | number          | -1      | If configured the toolheads are going into standby mode when parked.                       |
-| variable_toolchange_first_purge      | number          | 50      | MM of filament that gets purged before a toolheads first use.                              |
+| variable_toolchange_sync_fans        | True / False    | False   | Synchronizes fan speeds while printing.                                                   |
+| variable_toolchange_combined_zhop    | True / False    | False   | Combines z-hop and retract/deretract moves for toolshifts.                                |
+| variable_toolchange_travel_speed     | number          | 300     | Toolshift travel speed.                                                                   |
+| variable_toolchange_travel_accel     | number          | 5000    | Toolshift travel acceleration.                                                            |
+| variable_toolchange_extrusion        | number          | 2.0     | Toolshift deretraction.                                                                   |
+| variable_toolchange_retraction       | number          | 2.0     | Toolshift retraction.                                                                     |
+| variable_toolchange_feedrate         | number          | 7200    | Extruder feedrate for retract/deretract moves for toolshifts.                             |
+| variable_toolchange_prepurging_timer | number          | 0       | Prepurge some filament before going back to the buildplate after X seconds of inactivity. |
+| variable_toolchange_purge            | number          | 25      | MM of filament that gets prepruged in case the timer has been configured,                 |
+| variable_toolchange_standby_temp     | number          | -1      | If configured the toolheads are going into standby mode when parked.                      |
+| variable_toolchange_first_purge      | number          | 50      | MM of filament that gets purged before a toolheads first use.                             |
 
 ## Beacon probe
+
 `[gcode_macro RatOS]`
 
 | Name                                           | Possible Values | Default | Description                                               |
@@ -218,6 +231,7 @@ Use this variable to set name for the bed_mesh profile that RatOS calibrate and 
 | variable_beacon_contact_expansion_multiplier   | number          | 1.0     | Multiplier for the nozzle thermal expansion compensation. |
 
 ## Stowable probes
+
 `[gcode_macro RatOS]`
 
 These variables are only relevant when using a stowable probe such as Euclid or Klicky. Use these to customize and finetune the deployment and stowing procedures.
@@ -245,84 +259,82 @@ gcode:
 	SETUP_KAMP_MESHING
 ```
 
-### Available user macro hooks
+### \_USER_START_PRINT_BEFORE_HOMING
 
-- **\_USER_START_PRINT_BEFORE_HOMING**
+Runs before the printer homes at the start of START_PRINT.
 
-	Runs before the printer homes at the start of START_PRINT.
+### \_USER_START_PRINT_HEAT_CHAMBER
 
-- **\_USER_START_PRINT_HEAT_CHAMBER**
+Runs right after the chamber has started heating, if CHAMBER_TEMP is supplied to START_PRINT.
 
-	Runs right after the chamber has started heating, if CHAMBER_TEMP is supplied to START_PRINT.
+### \_USER_START_PRINT_AFTER_HEATING_BED
 
-- **\_USER_START_PRINT_AFTER_HEATING_BED**
+Runs right after the bed has reached temp, before the internal \_START_PRINT_AFTER_HEATING_BED
 
-	Runs right after the bed has reached temp, before the internal \_START_PRINT_AFTER_HEATING_BED
+### \_USER_START_PRINT_BED_MESH
 
-- **\_USER_START_PRINT_BED_MESH**
+Runs before \_START_PRINT_BED_MESH
 
-	Runs before \_START_PRINT_BED_MESH
+### \_USER_START_PRINT_PARK
 
-- **\_USER_START_PRINT_PARK**
+Runs before \_START_PRINT_PARK
 
-	Runs before \_START_PRINT_PARK
+### \_USER_START_PRINT_AFTER_HEATING_EXTRUDER
 
-- **\_USER_START_PRINT_AFTER_HEATING_EXTRUDER**
+Runs just before \_START_PRINT_AFTER_HEATING_EXTRUDER
 
-	Runs just before \_START_PRINT_AFTER_HEATING_EXTRUDER
+### \_USER_END_PRINT_BEFORE_HEATERS_OFF
 
-- **\_USER_END_PRINT_BEFORE_HEATERS_OFF**
+Runs before the heaters are turned off in END_PRINT
 
-	Runs before the heaters are turned off in END_PRINT
+### \_USER_END_PRINT_AFTER_HEATERS_OFF
 
-- **\_USER_END_PRINT_AFTER_HEATERS_OFF**
+Runs after the heaters are turned off in END_PRINT
 
-	Runs after the heaters are turned off in END_PRINT
+### \_USER_END_PRINT_PARK
 
-- **\_USER_END_PRINT_PARK**
+Runs before the toolhead is parked in END_PRINT
 
-	Runs before the toolhead is parked in END_PRINT
+### \_USER_START_PRINT
 
-- **\_USER_START_PRINT**
+Runs before the START_PRINT macro
 
-	Runs before the START_PRINT macro
+### \_USER_END_START_PRINT
 
-- **\_USER_END_START_PRINT**
+Runs after the START_PRINT macro
 
-	Runs after the START_PRINT macro
+### \_USER_START_FEATURE
 
-- **\_USER_START_FEATURE**
+Runs at the start of a new print feature. This is useful for running custom G-Code based on the feature that is being printed.
 
-- **\_USER_END_FEATURE**
+### \_USER_END_FEATURE
+
+Runs at the end of a print feature. This is useful for running custom G-Code based on the feature that is being printed.
 
 ## Internal macro hooks
 
 These hooks are used internally, so if you override these be sure to copy paste the original implementation and modify that or you may break some functionality. Remember to check if there's an override in the printer's macro.cfg file, in which case that's the one you would copy.
 
-### Available internal macro hooks
+### \_START_PRINT_HEAT_CHAMBER
 
-- **\_START_PRINT_HEAT_CHAMBER**
+Heats the chamber, if CHAMBER_TEMP is supplied to START_PRINT.
 
-	Heats the chamber, if CHAMBER_TEMP is supplied to START_PRINT.
+### \_START_PRINT_AFTER_HEATING_BED
 
-- **\_START_PRINT_AFTER_HEATING_BED**
+Runs right after the bed has reached temp, after \_USER_START_PRINT_AFTER_HEATING_BED. It is usually used for additional bed calibration, such as Z_TILT_ADJUST or QUAD_GANTRY_LEVELING depending on the printer.
 
-	Runs right after the bed has reached temp, after \_USER_START_PRINT_AFTER_HEATING_BED. It is usually used for additional bed calibration, such as Z_TILT_ADJUST or QUAD_GANTRY_LEVELING depending on the printer.
+### \_START_PRINT_BED_MESH
 
-- **\_START_PRINT_BED_MESH**
+Handles bed meshing logic.
 
-	Handles bed meshing logic.
+### \_START_PRINT_PARK
 
-- **\_START_PRINT_PARK**
+Parks the extruder while heating the nozzle to print temperature.
 
-	Parks the extruder while heating the nozzle to print temperature.
+### \_START_PRINT_AFTER_HEATING_EXTRUDER
 
-- **\_START_PRINT_AFTER_HEATING_EXTRUDER**
+Primes the nozzle and loads the skew profile if any is defined in the RatOS variables.
 
-	Primes the nozzle and loads the skew profile if any is defined in the RatOS variables.
+### \_END_PRINT_AFTER_HEATERS_OFF
 
-- **\_END_PRINT_AFTER_HEATERS_OFF**
-
-	Runs right after the heaters have been turned off in the END_PRINT macro.
-
-
+Runs right after the heaters have been turned off in the END_PRINT macro.

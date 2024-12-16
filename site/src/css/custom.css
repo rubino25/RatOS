@@ -25,7 +25,10 @@
  */
  
  body article .markdown {
-	 @apply prose-sm md:prose-base min-[1440px]:prose-lg prose-invert prose-headings:text-pretty max-w-none prose-ul:pl-4 prose-ul:list-outside prose-li:marker:text-sky-300 prose-ul:mt-0 prose-ol:mt-0 prose-li:my-1 prose-headings:m-[var(--ifm-heading-margin-top)_0_calc(var(--ifm-heading-margin-bottom)_/_2)_0_];
+	 @apply prose-sm md:prose-base min-[1440px]:prose-lg prose-invert prose-headings:text-pretty max-w-none;
+	 @apply prose-ul:pl-4 prose-ul:list-outside prose-li:marker:text-sky-300 prose-ul:mt-0 prose-ol:mt-0 prose-li:my-1;
+	 @apply prose-headings:m-[var(--ifm-heading-margin-top)_0_calc(var(--ifm-heading-margin-bottom)_/_2)_0_];
+	 @apply prose-table:w-full prose-table:table prose-table:table-auto prose-td:px-3 prose-th:text-left prose-th:px-3;
  }
 
  body article .markdown .button p {
@@ -76,6 +79,13 @@
  }
  article .theme-admonition > div:first-child {
 	@apply font-bold text-base;
+ }
+
+ /**
+  * Sidebar
+  */
+ .table-of-contents__link.toc-highlight {
+	@apply truncate;
  }
 
 
