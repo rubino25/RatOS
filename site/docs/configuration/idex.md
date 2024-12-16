@@ -1,11 +1,11 @@
-# RatOS 2.1 IDEX Macros
+# IDEX Macros
 
-- [IDEX_SINGLE]()
-- [IDEX_COPY]()
-- [IDEX_MIRROR]()
-- [IDEX_PARK]()
-- [JOIN_SPOOLS]()
-- [REMAP_TOOLHEADS]()
+- [IDEX_SINGLE](#idex_single)
+- [IDEX_COPY](#idex_copy)
+- [IDEX_MIRROR](#idex_mirror)
+- [IDEX_PARK](#idex_park)
+- [JOIN_SPOOLS](#join_spools)
+- [REMAP_TOOLHEADS](#remap_toolheads)
 
 
 ## IDEX printing modes

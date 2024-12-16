@@ -1,23 +1,25 @@
-# RatOS 2.1 Chamber heater control
+# Chamber Heater Control
 
-RatOS comes with a built in chamber heater control that supports 3 differenct scenarios. 
+RatOS comes with a built in chamber heater control that supports 3 differenct scenarios.
 
 - [1. Bed heater](#1-bed-heater)
 - [2. Internal heater](#2-internal-heater)
 - [3. External heater](#3-external-heater)
 
-
 ## Prerequisites
+
 - Make sure to configure your slicer according to the [official RatOS slicer configuration](../slicers.md)
 
 ## 1. Bed heater
+
 RatOS uses by default the bed heater to heat the chamber, the hotend thermistor or a chamber thermistor will be used to wait for the initial chamber temperature.
 
 - if no `temperature_sensor chamber` is defined, the hotend thermistor will be used to wait for the initial chamber temperature.
 
 ### Configuration
 
-*Make sure to name your devices after this example configuration.* 
+_Make sure to name your devices after this example configuration._
+
 ```
 [temperature_sensor chamber]
 sensor_type: ATC Semitec 104GT-2
@@ -25,14 +27,16 @@ sensor_pin: PF4
 ```
 
 ## 2. Internal (klipper/RatOS controlled) heater
-A pwm controlled chamber heater, a heater fan and a chamber thermistor to control the chamber temperature. 
+
+A pwm controlled chamber heater, a heater fan and a chamber thermistor to control the chamber temperature.
 
 - if no `temperature_sensor chamber` is defined, the hotend thermistor will be used to wait for the initial chamber temperature.
-- if `temperature_sensor chamber` is defined it will be used for the automatic chamber temperature control. 
+- if `temperature_sensor chamber` is defined it will be used for the automatic chamber temperature control.
 
 ### Configuration
 
-*Make sure to name your devices after this example configuration.* 
+_Make sure to name your devices after this example configuration._
+
 ```
 [temperature_sensor chamber]
 sensor_type: ATC Semitec 104GT-2
@@ -60,14 +64,16 @@ heater_temp: 40
 ```
 
 ## 3. External (stand-alone controller) heater
-A dedicated heater device with or without its own temperature control that can be switched on/off by a relais/output_pin and a chamber thermistor to control the initial chamber temperature. 
+
+A dedicated heater device with or without its own temperature control that can be switched on/off by a relais/output_pin and a chamber thermistor to control the initial chamber temperature.
 
 - if no `temperature_sensor chamber` is defined, the hotend thermistor will be used to wait for the initial chamber temperature.
 - a `temperature_sensor chamber` can be used for the automatic chamber temperature control. In this case set `chamber_heater_control_external_heater` to `True`. This will turn the heater on/off when needed.
 
 ### Configuration
 
-*Make sure to name your devices after this example configuration.*
+_Make sure to name your devices after this example configuration._
+
 ```
 [temperature_sensor chamber]
 sensor_type: ATC Semitec 104GT-2
@@ -78,12 +84,14 @@ pin: PE14
 ```
 
 ## Extra Chamber Heater Fan
+
 A extra fan can be configured to support the chamber heating process, control its speed with the `chamber_heater_extra_fan_speed` variable.
+
 ```
 [fan_generic chamber_heater_extra_fan]
 ```
 
-To support more usecases the chamber heater extra fan control comes with two macro hooks that can be overwritten. 
+To support more usecases the chamber heater extra fan control comes with two macro hooks that can be overwritten.
 
 ```
 [gcode_macro _CHAMBER_HEATER_EXTRA_FAN_ON]
@@ -98,6 +106,7 @@ gcode:
 		{% endif %}
 	{% endif %}
 ```
+
 ```
 [gcode_macro _CHAMBER_HEATER_EXTRA_FAN_OFF]
 gcode:
@@ -108,6 +117,7 @@ gcode:
 ```
 
 ## User Macro Hooks
+
 ```
 [gcode_macro _USER_CHAMBER_HEATER_BEFORE_PREHEATING]
 description: Will be executed before chamber preheating, only if heating is needed.

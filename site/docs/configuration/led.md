@@ -1,6 +1,6 @@
-# RatOS 2.1 LED control
+# LED Control
 
-RatOS comes with a built in LED status control for toolhead LED's. It also lets the user add custom LEDs that can be automatically controlled by RatOS. 
+RatOS comes with a built in LED status control for toolhead LED's. It also lets the user add custom LEDs that can be automatically controlled by RatOS.
 
 ## Example toolhead LED configuration for single toolhead printer
 
@@ -52,7 +52,7 @@ gcode:
 	{% set b = params.B|default(0)|float %}
 
 	# replace MY_LED_NAME with the name you choosed for the custom LED
-	SET_LED LED="MY_LED_NAME" RED={r} GREEN={g} BLUE={b} SYNC=0 
+	SET_LED LED="MY_LED_NAME" RED={r} GREEN={g} BLUE={b} SYNC=0
 ```
 
 ## Changing status colors

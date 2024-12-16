@@ -1,4 +1,4 @@
-# RatOS 2.1 Calibration Macros
+# Calibration Macros
 
 - [PID_CALIBRATE_HOTEND](#pid_calibrate_hotend)
 - [PID_CALIBRATE_BED](#pid_calibrate_bed)

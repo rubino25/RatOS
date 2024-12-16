@@ -1,4 +1,4 @@
-# RatOS 2.1 Filament Sensors
+# Filament Sensors
 
 RatOS supports multiple sensor types that are toolhead aware. These sensors can be combined to work together. Configure them as described, there are no other changes needed.
 

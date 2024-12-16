@@ -1,17 +1,19 @@
-# RatOS 2.1 Chamber filter control
+# Chamber Filter Control
 
-RatOS comes with a built in chamber filter control. 
+RatOS comes with a built in chamber filter control.
 
 ## Prerequisites
 
-To be able to use the chamber control feature you just need to configure a generic fan with the name `filter`. 
+To be able to use the chamber control feature you just need to configure a generic fan with the name `filter`.
+
 ```
 [fan_generic filter]
 ```
 
 ## Configuration
 
-The feature is activated by default, you dont need to do anything. But you can override the settings in your printer.cfg if wanted. 
+The feature is activated by default, you dont need to do anything. But you can override the settings in your printer.cfg if wanted.
+
 ```
 [gcode_macro RatOS]
 variable_chamber_filter_enable: True                     # True|False = enable chamber filter control
@@ -23,7 +25,7 @@ variable_chamber_filter_disable_bed_temp: 0              # int = wait for X°C b
 
 ## Macro hooks
 
-To support more usecases the chamber fitler controls comes with two macro hooks that can be overwritten. 
+To support more usecases the chamber fitler controls comes with two macro hooks that can be overwritten.
 
 ```
 [gcode_macro _CHAMBER_FILTER_TURN_ON]

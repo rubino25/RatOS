@@ -1,4 +1,4 @@
-# RatOS 2.1 Filament Macros
+# Filament Macros
 
 - [LOAD_FILAMENT](#load_filament)
 - [UNLOAD_FILAMENT](#unload_filament)
