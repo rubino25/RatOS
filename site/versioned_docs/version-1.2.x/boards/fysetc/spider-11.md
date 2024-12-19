@@ -131,7 +131,7 @@ command so you don't need to fiddle around with SD Cards.
 
 ## Setup
 
-If you're going through initial setup please continue in the [installation guide](installation.md#setup)
+If you're going through initial setup please continue in the [installation guide](/docs/installation#setting-up-your-printer)
 
 ## ADXL345 Connection
 

@@ -9,6 +9,8 @@ tags: [RatOS, Moonraker]
 
 As you might know, a couple of weeks ago, I issued a warning about updating moonraker due to a major change that involved file restructuring, config changes and deprecations. I now believe i've ironed out all the kinks, and I can now say that the update is safe to do, as long as you update RatOS first, as usual.
 
+{/* truncate */}
+
 **There are a few things to note about this update:**
 
 Users who installed RatOS before 1.2.1 have an unmanaged moonraker config, this means that it's up to the user to manage it and RatOS can't correct it when things need updating. Fear not though, as most of this is automated by moonraker itself. When you update moonraker, make sure to keep an eye on the notifications in the topmenu, there's a chance you might have to follow the instructions in there to finish the config validation. If you're asked to enter a sudo password, the default is `raspberry`.

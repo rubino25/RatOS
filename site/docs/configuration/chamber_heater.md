@@ -3,8 +3,8 @@
 RatOS includes built-in chamber heater control that supports three different scenarios:
 
 - [1. Bed Heater](#1-bed-heater)
-- [2. Internal Heater](#2-internal-heater)
-- [3. External Heater](#3-external-heater)
+- [2. Internal Heater](#2-internal-klipperratos-controlled-heater)
+- [3. External Heater](#3-external-stand-alone-controller-heater)
 
 ## Prerequisites
 

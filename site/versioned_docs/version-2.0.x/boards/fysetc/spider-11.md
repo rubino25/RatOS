@@ -40,7 +40,7 @@ Follow the steps in the RatOS Configurator at [http://RatOS.local/configure?step
 
 ## Setup
 
-If you're going through initial setup please continue in the [installation guide](installation.md#setup)
+If you're going through initial setup please continue in the [installation guide](/docs/installation#setting-up-your-printer)
 
 ## ADXL345 Connection
 

@@ -12,14 +12,14 @@ Sensors can be temporarily deactivated in the Mainsail user interface.
 If a sensor shows "detected" when no filament is loaded and "empty" when filament is loaded, invert the `switch_pin` by adding or removing a `!` in front of the pin name. The sensor state will be displayed in the Mainsail user interface.
 :::
 
-### Supported Sensors
+## Supported Sensors
 
 - [Toolhead Filament Sensor](#toolhead-filament-sensor)
 - [Bowden Filament Sensor](#bowden-filament-sensor)
 - [Motion Filament Sensor](#motion-filament-sensor)
 - [Action Button](#action-button)
 
-### RatOS Configuration
+## RatOS Configuration
 
 - [Sensor features](#sensor-features)
 - [Filament grabbing](#filament-grabbing)
@@ -28,7 +28,7 @@ If a sensor shows "detected" when no filament is loaded and "empty" when filamen
 - [Retraction](#retraction)
 - [Advanced](#advanced)
 
-# Toolhead Filament Sensor
+## Toolhead Filament Sensor
 
 Toolhead filament sensors attach directly to the toolhead.
 
@@ -57,7 +57,7 @@ insert_gcode:
     _ON_TOOLHEAD_FILAMENT_SENSOR_INSERT TOOLHEAD=0
 ```
 
-# Bowden Filament Sensor
+## Bowden Filament Sensor
 
 Bowden filament sensors attach somewhere along the bowden tube.
 
@@ -83,7 +83,7 @@ insert_gcode:
     _ON_BOWDEN_FILAMENT_SENSOR_INSERT TOOLHEAD=0
 ```
 
-# Motion Filament Sensor
+## Motion Filament Sensor
 
 Motion sensors can detect filament clogs.
 
@@ -110,7 +110,7 @@ runout_gcode:
 insert_gcode:
 ```
 
-# Action Button
+## Action Button
 
 Some filament sensors, like the Orbiter filament sensor, come with an action button.
 
@@ -128,7 +128,7 @@ release_gcode:
 press_gcode:
 ```
 
-# Orbiter Smart Filament Sensor example configuration
+## Orbiter Smart Filament Sensor example configuration
 
 The new Orbiter Smart Filament Sensor with filament tangle detection.
 
@@ -153,7 +153,7 @@ release_gcode:
 press_gcode:
 ```
 
-# RatOS Configuration
+## RatOS Configuration
 
 ### Sensor features
 

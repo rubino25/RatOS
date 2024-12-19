@@ -37,7 +37,7 @@ Now navigate to the `Machine` page in Mainsail (the webinterface you just opened
 
 ## Verify Stepper Directions
 
-!> Do NOT use RatOS with other than stock steppers. If you are using different steppers please make sure to check their rating, and configure their currents accordingly ([see Includes & Overrides](#includes-amp-overrides)).
+!> Do NOT use RatOS with other than stock steppers. If you are using different steppers please make sure to check their rating, and configure their currents accordingly ([see Includes & Overrides](configuration/includes-and-overrides)).
 
 Make sure your steppers are running in the correct direction. To do this, center all your axes by moving the carriage and bed manually, then type `SET_CENTER_KINEMATIC_POSITION` in the console. You can now use the Mainsail controls to move the axes. Check that your bed moves down when Z is **increased**. By default, the Z controls in the Mainsail interface will increase Z when you click the up arrow. This will lower the bed on a CoreXY machine with a moving bed such as the V-Core 3, and raise the X gantry on a bedslinger such as the V-Minion or V-Cast. If your bed does not move down (or your x gantry doesn't raise) when you click the up arrow, change the direction of your Z steppers in printer.cfg. There's instructions on how to do that at the top of printer.cfg.
 

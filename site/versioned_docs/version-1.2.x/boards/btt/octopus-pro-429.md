@@ -50,7 +50,7 @@ If you don't know how to make Windows Explorer show file extensions, see [this a
 You can verify if the board flashed correctly by checking if the firmware.bin file has been changed to firmware.CUR on the SD card. If you have trouble flashing the motherboard, start unplugging your wires beginning with the endstops, sometimes faulty wiring can cause the board to not boot properly.
 :::
 
-If you're going through initial setup please continue in the [installation guide](installation.md#setup)
+If you're going through initial setup please continue in the [installation guide](/docs/installation#setting-up-your-printer)
 
 ## Manual firmware upgrade
 

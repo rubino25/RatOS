@@ -36,7 +36,7 @@ If you're getting errors after going through printer.cfg, you either messed up t
 ## Verify Stepper Directions
 
 :::caution Only use supported steppers
-Do NOT use RatOS with other than supported steppers (will be listed in printer.cfg). If you are using different steppers please make sure to check their rating, and configure their currents accordingly ([see Includes & Overrides](#includes-amp-overrides)).
+Do NOT use RatOS with other than supported steppers (will be listed in printer.cfg). If you are using different steppers please make sure to check their rating, and configure their currents accordingly ([see Includes & Overrides](configuration/includes-and-overrides)).
 :::
 
 Make sure your steppers are running in the correct direction. To do this, center all your axes by moving the carriage and bed manually, then type `SET_CENTER_KINEMATIC_POSITION` in the console. You can now use the Mainsail controls to move the axes. Check that your bed moves down when Z is **increased**. By default, the Z controls in the Mainsail interface will increase Z when you click the up arrow. This will lower the bed on a CoreXY machine with a moving bed such as the V-Core 3, and raise the X gantry on a bedslinger such as the V-Minion or V-Cast. If your bed does not move down (or your x gantry doesn't raise) when you click the up arrow, change the direction of your Z steppers in printer.cfg. There's instructions on how to do that at the top of printer.cfg.
@@ -79,7 +79,7 @@ See the wiring diagram for your board on how to connect your ADXL345, RatOS prim
 
 If you want to use an ADXL345 for automatic input shaper calibration, all the software you need is already preinstalled in RatOS you just need to wire up your ADXL345, and you're good to go.
 
-To enable resonance testing, uncomment the `[resonance_tester]` header, along with the coordinates for your printer in the `PRINTER CONFIGURATION` section in printer.cfg. To verify that your ADXL is properly connected, write `MEASURE_AXES_NOISE` in the Mainsail console, if the values are below 100, you're good to go. If you're using a CoreXY machine, you may find the `MEASURE_COREXY_BELT_TENSION` macro handy for checking if your belts are equally tensioned (the peaks in the resulting graphs should line up with each other). 
+To enable resonance testing, uncomment the `[resonance_tester]` header, along with the coordinates for your printer in the `PRINTER CONFIGURATION` section in printer.cfg. To verify that your ADXL is properly connected, write `MEASURE_AXES_NOISE` in the Mainsail console, if the values are below 100, you're good to go. If you're using a CoreXY machine, you may find the `MEASURE_COREXY_BELT_TENSION` macro handy for checking if your belts are equally tensioned (the peaks in the resulting graphs should line up with each other).
 
 For all printers with an ADXL345 you can use `GENERATE_SHAPER_GRAPHS` to run resonance tests and generate resonance graphs for analysis of your printers resonance profile, use this to manually pick the best parameters for your printer configuration. To calibrate input shaper automatically, write `SHAPER_CALIBRATE` in the console, this will run the resonances tests and automatically guess the parameters which can then be saved via `SAVE_CONFIG`.
 

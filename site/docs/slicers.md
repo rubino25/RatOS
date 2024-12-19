@@ -8,21 +8,22 @@
 - [IdeaMaker](#ideamaker)
 - [Slicer thumbnails](#slicer-thumbnails)
 
-# Macros
+## Macros
 
 RatOS comes with START_PRINT and END_PRINT macros that you can call directly from your slicers. This way the printer knows how to start a print, and you can there easily switch between slicers without worrying if you changed anything in another slicer.
 The g-code for these macros are found in `config/RatOS/macros.cfg`
 
-# Disable any "advanced extruder pressure" settings
+## Disable any "advanced extruder pressure" settings
+
 Some slicers advertise an "advanced extruder pressure" capability. It is recommended to keep these options disabled when using Klipper as they are likely to result in poor quality prints. Consider using Klipper's pressure advance instead.
 
 Specifically, these slicer settings can instruct the firmware to make wild changes to the extrusion rate in the hope that the firmware will approximate those requests and the printer will roughly obtain a desirable extruder pressure. Klipper, however, utilizes precise kinematic calculations and timing. When Klipper is commanded to make significant changes to the extrusion rate it will plan out the corresponding changes to velocity, acceleration, and extruder movement - which is not the slicer's intent. The slicer may even command excessive extrusion rates to the point that it triggers Klipper's maximum extrusion cross-section check.
 
 In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.
 
-# Prusa Slicer
+## Prusa Slicer
 
-*Prusa Slicer comes with full IDEX support and is the recommended slicer for all RatRig printers.*
+_Prusa Slicer comes with full IDEX support and is the recommended slicer for all RatRig printers._
 
 :::info
 You should be using "Klipper" as the gcode flavor and have the "Use relative E distances" box checked in Printer Settings -> General -> Advanced.
@@ -114,9 +115,9 @@ Pause GCode
 PAUSE
 ```
 
-# Super Slicer
+## Super Slicer
 
-*Super Slicer supports IDEX printers, but it is not recommended to use.*
+_Super Slicer supports IDEX printers, but it is not recommended to use._
 
 :::info
 You should be using "Klipper" as the gcode flavor and have the "Only custom Start G-Code" box checked in Printer Settings -> Custom G-Code and "Use relative E distances" box checked in Printer Settings -> General -> Advanced.
@@ -159,6 +160,7 @@ START_PRINT EXTRUDER_TEMP={first_layer_temperature[0]},{first_layer_temperature[
 ```
 
 End GCode
+
 ```properties
 END_PRINT
 ```
@@ -205,9 +207,9 @@ Pause GCode
 PAUSE
 ```
 
-# Orca Slicer
+## Orca Slicer
 
-*Orca Slicer supports IDEX printers, but it is not recommended to use.*
+_Orca Slicer supports IDEX printers, but it is not recommended to use._
 
 :::info
 You should be using "Klipper" as the gcode flavor and have the "Use relative E distances" box checked in in Printer Settings -> Advance.
@@ -288,9 +290,9 @@ Pause GCode
 PAUSE
 ```
 
-# Cura
+## Cura
 
-*Cura does not support RatRig IDEX printers.*
+_Cura does not support RatRig IDEX printers._
 
 :::info
 This is the ONLY gcode you need, delete everything else. Copy paste the following **as is**.
@@ -370,9 +372,9 @@ class MeshPrintSize(Script):
 3. restart cura
 4. in cura open menu `Extensions -> Post processing -> Modify G-Code` and select `Mesh Print Size`
 
-# Simplify 3D V5
+## Simplify 3D V5
 
-*Simplify 3D does not support RatRig IDEX printers.*
+_Simplify 3D does not support RatRig IDEX printers._
 
 :::info
 This is the ONLY gcode you need, delete everything else. Copy paste the following **as is**.
@@ -390,9 +392,9 @@ End GCode
 END_PRINT
 ```
 
-# IdeaMaker
+## IdeaMaker
 
-*IdeaMaker does not support RatRig IDEX printers.*
+_IdeaMaker does not support RatRig IDEX printers._
 
 :::info
 This is the ONLY gcode you need, delete everything else. Copy paste the following **as is**.
@@ -414,6 +416,6 @@ END_PRINT
 IdeaMaker will complain there's no heating commands, you can safely ignore this.
 :::
 
-# Slicer thumbnails
+## Slicer thumbnails
 
 See the Mainsail documentation: [G-Code Thumbnails in Mainsail](https://docs.mainsail.xyz/overview/features/thumbnails)

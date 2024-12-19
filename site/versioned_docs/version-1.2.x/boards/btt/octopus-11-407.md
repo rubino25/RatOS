@@ -50,7 +50,7 @@ You can verify if the board flashed correctly by checking if the firmware.bin fi
 Once you have verifed the board has been succesfully flashed, **do not** reinsert the SD card. If the SD card remains in the board, the automatic flashing will not work.
 :::
 
-If you're going through initial setup please continue in the [installation guide](installation.md#setup)
+If you're going through initial setup please continue in the [installation guide](/docs/installation#setting-up-your-printer)
 
 ## Manual firmware upgrade
 
