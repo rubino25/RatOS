@@ -216,7 +216,7 @@ export const Hero = () => {
 							beginners and experts.
 						</p>
 						<div className="mt-10 flex items-center gap-x-6">
-							<Button href="https://github.com/Rat-OS/RatOS/releases/latest">
+							<Button href="https://github.com/Rat-OS/RatOS/releases">
 								<DownloadCloudIcon className="size-5" />{" "}
 								Download
 							</Button>
