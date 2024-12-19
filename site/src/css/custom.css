@@ -26,13 +26,29 @@
  
  body article .markdown {
 	 @apply prose-sm md:prose-base min-[1440px]:prose-lg prose-invert prose-headings:text-pretty max-w-none;
-	 @apply prose-ul:pl-4 prose-ul:list-outside prose-li:marker:text-sky-300 prose-ul:mt-0 prose-ol:mt-0 prose-li:my-1;
+	 @apply prose-ul:pl-4 prose-ul:list-outside prose-li:marker:text-sky-300 prose-ul:mt-0 prose-ol:mt-0 prose-li:my-1 prose-li:text-zinc-300;
 	 @apply prose-headings:m-[var(--ifm-heading-margin-top)_0_calc(var(--ifm-heading-margin-bottom)_/_2)_0_];
 	 @apply prose-table:w-full prose-table:table prose-table:table-auto prose-td:px-3 prose-th:text-left prose-th:px-3;
  }
 
  body article .markdown .button p {
 	@apply mb-0;
+ }
+
+ body article .markdown h1:first-child {
+	@apply mt-0;
+ }
+
+ body article .markdown code {
+	@apply text-zinc-200 bg-zinc-200/10 border-zinc-200/20 border px-1;
+ }
+
+ body article .markdown pre {
+	@apply mt-0;
+ }
+
+ body article .markdown pre code {
+	@apply bg-transparent p-0;
  }
 
  article .avatar__name a {

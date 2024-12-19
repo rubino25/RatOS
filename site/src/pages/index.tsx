@@ -3,6 +3,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import {
 	ArrowRightLeftIcon,
 	BoltIcon,
+	BugOffIcon,
 	CalendarDaysIcon,
 	ChartLineIcon,
 	ChevronRightIcon,
@@ -29,11 +30,11 @@ import { Hero } from "../components/frontpage/hero";
 
 const primaryFeatures = [
 	{
-		name: "Printer Configuration",
+		name: "No more breaking klipper updates!",
 		description:
-			"Easily configure your 3D printer with our intuitive web interface. Set up motors, configure input shaping, and tune your printer with just a few clicks.",
-		href: "/docs/configuration",
-		icon: BoltIcon,
+			"RatOS pins klipper to known working versions and flashes your MCU's automatically, so you don't have to worry about breaking updates again.",
+		href: "/docs/changelog",
+		icon: BugOffIcon,
 	},
 	{
 		name: "Community Support",
@@ -45,7 +46,7 @@ const primaryFeatures = [
 	{
 		name: "Regular Updates",
 		description:
-			"Stay up to date with the latest features and improvements. RatOS is actively maintained and regularly updated with new capabilities and optimizations.",
+			"RatOS is actively maintained and regularly updated with new capabilities and optimizations, ensuring your printer performs at its best.",
 		href: "/docs/changelog",
 		icon: CalendarDaysIcon,
 	},
@@ -147,10 +148,11 @@ export default function Index() {
 						<p className="mt-4 text-balance text-lg/8 text-zinc-300">
 							From initial setup to advanced tuning, RatOS
 							provides all the tools you need to get the most out
-							of your 3D printer. With an intuitive configuration
-							interface, active community support, and regular
-							feature updates, we make 3D printing accessible and
-							powerful.
+							of your custom built 3D printer. With an intuitive
+							configuration interface, managed auto generated
+							klipper configuration, active community support, and
+							regular feature updates, we make 3D printing
+							accessible and powerful.
 						</p>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -210,9 +212,10 @@ export default function Index() {
 							</p>
 							<p className="mt-4 text-balance text-lg/8 text-zinc-300">
 								RatOS combines the power of Klipper with an
-								easy-to-use interface, making it simple to get
-								started while providing advanced features when
-								you need them.
+								easy-to-use configuration interface and a
+								managed auto generated configuration. RatOS is
+								designed to be simple to get started with while
+								providing advanced features when you need them.
 							</p>
 						</div>
 					</div>

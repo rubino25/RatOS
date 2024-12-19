@@ -22,4 +22,4 @@ build.log
 .*.swp
 
 # Ignore built docs
-docs
+./docs/

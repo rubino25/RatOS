@@ -146,15 +146,15 @@ export const Hero = () => {
 							)}
 						/>
 						<h1 className="sr-only">
-							The intelligent 3d printer OS for custom built
-							hardware.
+							The adaptive operating system for custom built 3D
+							printers.
 						</h1>
 						{inView && (
 							<TextReveal
 								delay={1000}
 								text={[
 									{
-										title: "Intelligent 3D Printer OS",
+										title: "Adaptive Operating System",
 										className:
 											"text-lg font-medium tracking-tight lg:text-2xl",
 									},
@@ -191,7 +191,7 @@ export const Hero = () => {
 								: "translate-y-12 opacity-0",
 						)}
 					>
-						<div className="mt-12">
+						{/* <div className="mt-12">
 							<a
 								href="/blog"
 								className="inline-flex space-x-6 hover:no-underline"
@@ -207,12 +207,13 @@ export const Hero = () => {
 									/>
 								</span>
 							</a>
-						</div>
+						</div> */}
 						<p className="mt-8 text-balance text-lg font-medium text-zinc-400 sm:text-xl/8">
 							RatOS is a powerful, open-source operating system
-							designed for 3D printers. Built on Klipper, it
-							provides an intuitive interface and advanced
-							features for both beginners and experts.
+							designed for 3D printers. Built around Klipper, it
+							provides an intuitive point and click configuration
+							interface and advanced modular features for both
+							beginners and experts.
 						</p>
 						<div className="mt-10 flex items-center gap-x-6">
 							<Button href="https://github.com/Rat-OS/RatOS/releases/latest">
@@ -237,10 +238,10 @@ export const Hero = () => {
 				<div
 					onClick={isZoomed ? zoom : undefined}
 					className={twJoin(
-						"pointer-events-none absolute inset-0 z-10 transition-all duration-700 ease-in-out lg:pointer-events-auto",
+						"pointer-events-none absolute inset-0 z-10 transition-all duration-700 ease-in-out",
 						isZoomed || !animatedIn
-							? "cursor-zoom-out bg-zinc-950/60 backdrop-blur-sm"
-							: "pointer-events-none backdrop-blur-none",
+							? "cursor-zoom-out bg-zinc-950/60 backdrop-blur-sm lg:pointer-events-auto"
+							: "backdrop-blur-none",
 					)}
 				/>
 				<div
