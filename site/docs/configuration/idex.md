@@ -7,57 +7,47 @@
 - [JOIN_SPOOLS](#join_spools)
 - [REMAP_TOOLHEADS](#remap_toolheads)
 
+## IDEX Printing Modes
 
-## IDEX printing modes
-
-Independent Dual Extrusion (IDEX) 3D printers offer versatile printing modes that enhance productivity and flexibility.
+Independent Dual Extrusion (IDEX) 3D printers offer versatile printing modes for enhanced productivity and flexibility.
 
 ### IDEX_SINGLE
 
-- Single toolhead mode for single, multicolor and multimaterial prints.
-
-	This is the default printing mode.	
+Single toolhead mode for single color, multicolor, and multimaterial prints. This is the default printing mode.
 
 ### IDEX_COPY
 
-- Prints two identical models simultaneously.
-
-	Run this macro before starting a print to enable the COPY mode. After the print ends the printer returns to single toolhead mode.
+Prints two identical models simultaneously. Run this macro before starting a print to enable COPY mode. The printer returns to single toolhead mode after print completion.
 
 ### IDEX_MIRROR
 
-- Mirrors your model and prints both the original and its mirror image in one go.
-
-	Run this macro before starting a print to enable the MIRROR mode.  After the print ends the printer returns to single toolhead mode.
+Prints both your model and its mirror image simultaneously. Run this macro before starting a print to enable MIRROR mode. The printer returns to single toolhead mode after print completion.
 
 ### IDEX_PARK
 
-- Moves the current active toolhead to its parking position.
+Parks the active toolhead in its designated position. Only available in single toolhead mode when not printing.
 
-	Only available in single toolhead mode and if printer is not printing.
-
-## IDEX extras
-
-RatOS comes with a built in join spool and toolhead remapping feature.
+## IDEX Extras
 
 ### JOIN_SPOOLS
+
 - **Parameters** `[SPOOLS]`
 
-    The spool join feature can switch to another filament spool once a runout has been detected. This works only if you have a RatOS runout sensor configured according to the [official RatOS filament sensor documentation](filament_sensors.md). 
+    Automatically switches to another filament spool upon detecting runout. Requires RatOS runout sensor configuration per the [official documentation](filament_sensors.md).
 
-	`SPOOLS` = Eg. `0,1` or `1,0`, both settings do the same actually. If one of the spools runs out it switches fully automated to the other and resumes the print.
+    `SPOOLS` = Specify spool combination (e.g., `0,1` or `1,0`). Both formats achieve the same result.
 
-	To deactivate the feature click the `JOIN_SPOOLS` macro button without any parameter.
-	
+    To disable this feature, run the `JOIN_SPOOLS` macro without parameters.
 
 ### REMAP_TOOLHEADS
+
 - **Parameters** `[TOOLHEADS]`
 
-	The toolhead remapping feature lets you swap the toolhead assignemnt.
+    Swaps toolhead assignments for:
 
-	`TOOLHEADS` = Eg. `0,1` or `1,0`, both settings do the same actually. Swaps the slicer toolhead assignment.
+    - Reprinting multicolor files with swapped toolheads
+    - Reprinting single toolhead prints with the other toolhead
 
-	- Reprint a already sliced multicolor file with swapped toolheads
-	- Reprint a already sliced single toolhead print with the other toolhead
+    `TOOLHEADS` = Specify toolhead order (e.g., `0,1` or `1,0`). Both formats achieve the same result.
 
-	To deactivate the feature click the `REMAP_TOOLHEADS` macro button without any parameter.
+    To disable this feature, run the `REMAP_TOOLHEADS` macro without parameters.

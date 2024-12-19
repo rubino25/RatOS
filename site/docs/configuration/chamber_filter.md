@@ -1,10 +1,10 @@
 # Chamber Filter Control
 
-RatOS comes with a built in chamber filter control.
+RatOS includes built-in chamber filter control functionality.
 
 ## Prerequisites
 
-To be able to use the chamber control feature you just need to configure a generic fan with the name `filter`.
+To use the chamber control feature, you only need to configure a generic fan named `filter`:
 
 ```
 [fan_generic filter]
@@ -12,7 +12,7 @@ To be able to use the chamber control feature you just need to configure a gener
 
 ## Configuration
 
-The feature is activated by default, you dont need to do anything. But you can override the settings in your printer.cfg if wanted.
+This feature is enabled by default and requires no additional configuration. However, you can customize the settings in your printer.cfg if desired:
 
 ```
 [gcode_macro RatOS]
@@ -23,23 +23,23 @@ variable_chamber_filter_disable_period: 300              # int = disable fan aft
 variable_chamber_filter_disable_bed_temp: 0              # int = wait for X°C bed temp after the print ends before disabling the filter
 ```
 
-## Macro hooks
+## Macro Hooks
 
-To support more usecases the chamber fitler controls comes with two macro hooks that can be overwritten.
+The chamber filter control includes two customizable macro hooks:
 
 ```
 [gcode_macro _CHAMBER_FILTER_TURN_ON]
 gcode:
-	# config
-	{% set chamber_filter_speed = printer["gcode_macro RatOS"].chamber_filter_speed|default(0)|float %}
+    # Configuration
+    {% set chamber_filter_speed = printer["gcode_macro RatOS"].chamber_filter_speed|default(0)|float %}
 
-	# turn filter fan on
-	SET_FAN_SPEED FAN=filter SPEED={chamber_filter_speed}
+    # Turn filter fan on
+    SET_FAN_SPEED FAN=filter SPEED={chamber_filter_speed}
 ```
 
 ```
 [gcode_macro _CHAMBER_FILTER_TURN_OFF]
 gcode:
-	# turn filter fan off
-	SET_FAN_SPEED FAN=filter SPEED=0
+    # Turn filter fan off
+    SET_FAN_SPEED FAN=filter SPEED=0
 ```

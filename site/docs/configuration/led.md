@@ -1,10 +1,12 @@
 # LED Control
 
-RatOS comes with a built in LED status control for toolhead LED's. It also lets the user add custom LEDs that can be automatically controlled by RatOS.
+RatOS includes built-in LED status control for toolhead LEDs and supports additional custom LED configurations.
 
-## Example toolhead LED configuration for single toolhead printer
+## Toolhead LED Configuration
 
-Make sure to name your LED `nozzle_led_t0`.
+### Single Toolhead Printer
+
+Configure your LED with the name `nozzle_led_t0`:
 
 ```
 [neopixel nozzle_led_t0]
@@ -16,9 +18,9 @@ initial_GREEN: 1.0
 initial_BLUE: 1.0
 ```
 
-## Example toolhead LED configuration for IDEX printer
+### IDEX Printer
 
-Make sure to name your LED `nozzle_led_t0` and `nozzle_led_t1`.
+Configure your LEDs with names `nozzle_led_t0` and `nozzle_led_t1`:
 
 ```
 [neopixel nozzle_led_t0]
@@ -38,26 +40,26 @@ initial_GREEN: 1.0
 initial_BLUE: 1.0
 ```
 
-## Adding a custom user LED to the RatOS LED control
+## Custom LED Integration
 
-Configure a LED according to the klipper documentation and then override this macro in your printer.cfg file.
+To add a custom LED to RatOS LED control, configure it according to Klipper documentation and override this macro in your printer.cfg:
 
 ```
 [gcode_macro _USER_LED_SET]
 gcode:
-	# parameter
-	{% set toolhead = params.TOOLHEAD|default(-1)|int %}
-	{% set r = params.R|default(0)|float %}
-	{% set g = params.G|default(0)|float %}
-	{% set b = params.B|default(0)|float %}
+    # Parameters
+    {% set toolhead = params.TOOLHEAD|default(-1)|int %}
+    {% set r = params.R|default(0)|float %}
+    {% set g = params.G|default(0)|float %}
+    {% set b = params.B|default(0)|float %}
 
-	# replace MY_LED_NAME with the name you choosed for the custom LED
-	SET_LED LED="MY_LED_NAME" RED={r} GREEN={g} BLUE={b} SYNC=0
+    # Replace MY_LED_NAME with your custom LED name
+    SET_LED LED="MY_LED_NAME" RED={r} GREEN={g} BLUE={b} SYNC=0
 ```
 
-## Changing status colors
+## Status Colors
 
-Status colors are stored as RGB values in these RatOS variables. Override them in your printer.cfg file to change them.
+Customize LED status colors by overriding these RGB values in your printer.cfg:
 
 ```
 [gcode_macro RatOS]

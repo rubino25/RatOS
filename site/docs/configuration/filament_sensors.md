@@ -1,15 +1,15 @@
 # Filament Sensors
 
-RatOS supports multiple sensor types that are toolhead aware. These sensors can be combined to work together. Configure them as described, there are no other changes needed.
+RatOS supports multiple sensor types that are toolhead-aware. These sensors can be combined to work together. Configure them as described - no other changes are needed.
 
-When combining toolhead and bowden sensors then each sensor has only one function. The Toolhead sensor reacts to the insert detection and the bowden sensor is responsible for the runout detection. This has the benefit that one doesnt need to open a heated chamber and remove the bowden tube to remove the old filament, it will be ejected and can be easily removed at the end of the bowden tube.
+When combining toolhead and bowden sensors, each sensor has a specific function. The toolhead sensor handles insert detection while the bowden sensor is responsible for runout detection. This has the benefit that you don't need to open a heated chamber and remove the bowden tube to remove old filament - it will be ejected and can be easily removed at the end of the bowden tube.
 
 :::info
-Sensors can be temporarily deactivated by disabling them in the mainsail user interface.
+Sensors can be temporarily deactivated in the Mainsail user interface.
 :::
 
 :::info
-If a sensor shows detected if no filament is loaded and empty if a filament is loaded, inverse the `switch_pin` by adding or removing a `!` in front of the pin name. The sensor state will be displayed in the mainsail user interface.
+If a sensor shows "detected" when no filament is loaded and "empty" when filament is loaded, invert the `switch_pin` by adding or removing a `!` in front of the pin name. The sensor state will be displayed in the Mainsail user interface.
 :::
 
 ### Supported Sensors
@@ -19,7 +19,7 @@ If a sensor shows detected if no filament is loaded and empty if a filament is l
 - [Motion Filament Sensor](#motion-filament-sensor)
 - [Action Button](#action-button)
 
-### RatOS configuration
+### RatOS Configuration
 
 - [Sensor features](#sensor-features)
 - [Filament grabbing](#filament-grabbing)
@@ -30,21 +30,22 @@ If a sensor shows detected if no filament is loaded and empty if a filament is l
 
 # Toolhead Filament Sensor
 
-Toolhead filament sensors are attached directly onto the toolhead.
+Toolhead filament sensors attach directly to the toolhead.
 
 ### Features
 
-- runout detection
-- insert detection
-- auto load filament on insert
-- auto unload filament after runout
-- auto resume print after insert
-- spool join for IDEX printer
-- filament grabbing on insert
-- check for filament presence/runuout before starting a print
-- frontend toolhead color used as status display
+- Runout detection
+- Insert detection
+- Automatic filament loading on insert
+- Automatic filament unloading after runout
+- Automatic print resume after insert
+- Spool joining for IDEX printers
+- Filament grabbing on insert
+- Filament presence/runout check before starting a print
+- Frontend toolhead color status display
 
 ### Configuration
+
 ```
 [filament_switch_sensor toolhead_filament_sensor_t0]
 pause_on_runout: False
@@ -58,18 +59,19 @@ insert_gcode:
 
 # Bowden Filament Sensor
 
-Bowden filament sensors are attached somewhere at the bowden tube.
+Bowden filament sensors attach somewhere along the bowden tube.
 
 ### Features
 
-- runout detection
-- insert detection (no automatic action available, macro can be overridden)
-- auto unload filament after runout
-- spool join for IDEX printer
-- check for filament presence/runuout before starting a print
-- frontend toolhead color used as status display
+- Runout detection
+- Insert detection (no automatic action available, macro can be overridden)
+- Automatic filament unloading after runout
+- Spool joining for IDEX printers
+- Filament presence/runout check before starting a print
+- Frontend toolhead color status display
 
 ### Configuration
+
 ```
 [filament_switch_sensor bowden_filament_sensor_t0]
 pause_on_runout: False
@@ -83,17 +85,18 @@ insert_gcode:
 
 # Motion Filament Sensor
 
-Motion sensors can be used for clog detection.
+Motion sensors can detect filament clogs.
 
 ### Features
 
-- optional runout detection
-- optional insert detection (no automatic action available, macro can be overridden)
-- clog detection
-- auto unload filament after runout
-- spool join for IDEX printer
+- Optional runout detection
+- Optional insert detection (no automatic action available, macro can be overridden)
+- Clog detection
+- Automatic filament unloading after runout
+- Spool joining for IDEX printers
 
 ### Configuration
+
 ```
 [filament_motion_sensor bowden_filament_clog_t0]
 switch_pin: ^PG15
@@ -109,13 +112,14 @@ insert_gcode:
 
 # Action Button
 
-Some filament sensors, like the orbiter filament sensor, do come with a action button.
+Some filament sensors, like the Orbiter filament sensor, come with an action button.
 
 ### Features
 
-- filament unload
+- Filament unload
 
 ### Configuration
+
 ```
 [gcode_button toolhead_filament_sensor_button_t0]
 pin: ^!toolboard_t0:PB4
@@ -152,6 +156,7 @@ press_gcode:
 # RatOS Configuration
 
 ### Sensor features
+
 ```
 [gcode_macro T0]
 variable_enable_insert_detection: True     # enables the insert detection
@@ -162,7 +167,9 @@ variable_resume_after_insert: True         # resumes the print after inserting n
 ```
 
 ### Filament grabbing
+
 When inserting a filament into the toolhead filament sensor, the extruder gears will grab the filament, even if the hotend is still cold.
+
 ```
 [gcode_macro T0]
 variable_filament_grabbing_speed: 1     # filament grabbing speed in mm/s
@@ -170,6 +177,7 @@ variable_filament_grabbing_length: 5    # filament grabbing length in mm
 ```
 
 ### Purging
+
 ```
 [gcode_macro T0]
 variable_purge_after_load: 30      # purge x mm after the filament has been loaded to the nozzle tip
@@ -177,6 +185,7 @@ variable_purge_before_unload: 0    # purge x mm before the filament unloads
 ```
 
 ### Feedrates
+
 ```
 [gcode_macro T0]
 variable_filament_load_speed: 10   # filament nozzle loading speed
@@ -184,6 +193,7 @@ variable_extruder_load_speed: 60   # extruder/cooling zone loading speed
 ```
 
 ### Retraction
+
 ```
 [gcode_macro PAUSE]
 variable_retract: 1.5   # retract on pause print
@@ -191,6 +201,7 @@ variable_extrude: 1.5   # extrude before resume print
 ```
 
 ### Parking Position
+
 ```
 [gcode_macro RatOS]
 variable_runout_park_in: "front"   # back|front|center = gantry parking position if a runout or clog has been detected
@@ -198,6 +209,7 @@ variable_runout_park_x: 50         # float = if configured the x position of the
 ```
 
 ### Advanced
+
 ```
 [gcode_macro T0]
 variable_cooling_position_to_nozzle_distance: 40            # distance between the cooling position and the nozzle

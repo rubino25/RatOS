@@ -1,24 +1,24 @@
 # Chamber Heater Control
 
-RatOS comes with a built in chamber heater control that supports 3 differenct scenarios.
+RatOS includes built-in chamber heater control that supports three different scenarios:
 
-- [1. Bed heater](#1-bed-heater)
-- [2. Internal heater](#2-internal-heater)
-- [3. External heater](#3-external-heater)
+- [1. Bed Heater](#1-bed-heater)
+- [2. Internal Heater](#2-internal-heater)
+- [3. External Heater](#3-external-heater)
 
 ## Prerequisites
 
-- Make sure to configure your slicer according to the [official RatOS slicer configuration](../slicers.md)
+- Configure your slicer according to the [official RatOS slicer configuration](../slicers.md)
 
-## 1. Bed heater
+## 1. Bed Heater
 
-RatOS uses by default the bed heater to heat the chamber, the hotend thermistor or a chamber thermistor will be used to wait for the initial chamber temperature.
+By default, RatOS uses the bed heater to heat the chamber. Either the hotend thermistor or a chamber thermistor will be used to monitor the initial chamber temperature.
 
-- if no `temperature_sensor chamber` is defined, the hotend thermistor will be used to wait for the initial chamber temperature.
+- If no `temperature_sensor chamber` is defined, the hotend thermistor will be used.
 
 ### Configuration
 
-_Make sure to name your devices after this example configuration._
+_Use these exact device names in your configuration:_
 
 ```
 [temperature_sensor chamber]
@@ -26,16 +26,18 @@ sensor_type: ATC Semitec 104GT-2
 sensor_pin: PF4
 ```
 
-## 2. Internal (klipper/RatOS controlled) heater
+## 2. Internal (Klipper/RatOS Controlled) Heater
 
-A pwm controlled chamber heater, a heater fan and a chamber thermistor to control the chamber temperature.
+Uses a PWM-controlled chamber heater, heater fan, and chamber thermistor.
 
-- if no `temperature_sensor chamber` is defined, the hotend thermistor will be used to wait for the initial chamber temperature.
-- if `temperature_sensor chamber` is defined it will be used for the automatic chamber temperature control.
+- If no `temperature_sensor chamber` is defined, the hotend thermistor will be used
+- If `temperature_sensor chamber` is defined, it will be used for automatic temperature control
 
 ### Configuration
 
-_Make sure to name your devices after this example configuration._
+<div className="text-amber-300 font-medium">
+_Use these exact device names in your configuration:_
+</div>
 
 ```
 [temperature_sensor chamber]
@@ -72,7 +74,9 @@ A dedicated heater device with or without its own temperature control that can b
 
 ### Configuration
 
-_Make sure to name your devices after this example configuration._
+<div className="text-amber-300 font-medium">
+_Use these exact device names in your configuration:_
+</div>
 
 ```
 [temperature_sensor chamber]
@@ -132,15 +136,15 @@ gcode:
 
 ```
 [gcode_macro RatOS]
-variable_chamber_heater_enable: True                      # True|False = enable chamber heater control
-variable_chamber_heater_bed_temp: 115                     # int = bed temperature during chamber preheating
-variable_chamber_heater_preheating_temp: 150              # int = the temp the generic_heater is set to when preheating the chamber
-variable_chamber_heater_heating_temp_offset: 25           # int = the temp offset for the generic_heater, in addition to the target chamber_temp, while printing
-variable_chamber_heater_control_external_heater: False    # True|False = automatic heater control for external heater devices
-variable_chamber_heater_air_circulation_enable: True      # True|False = uses the part cooling to blow air from the top of the chamber to the bottom when preheating the chamber
-variable_chamber_heater_air_circulation_fan_speed: 0.35   # float = the part cooling fan speed that is used to circulate the air when preheating the chamber
-variable_chamber_heater_air_circulation_y_pos: 0          # float = toolhead y-pos when circulating the air
-variable_chamber_heater_air_circulation_z_pos: 100        # float = toolhead z-pos when circulating the air
-variable_chamber_heater_extra_fan_speed: 1.0              # float = the extra chamber heater fan that is used to circulate the air when preheating the chamber
-variable_chamber_heater_filter_fan_speed: 1.0             # float = the filter fan speed that is used to circulate the air when preheating the chamber
+variable_chamber_heater_enable: True                      # Enable/disable chamber heater control
+variable_chamber_heater_bed_temp: 115                     # Bed temperature during chamber preheating (°C)
+variable_chamber_heater_preheating_temp: 150              # Generic heater temperature for chamber preheating (°C)
+variable_chamber_heater_heating_temp_offset: 25           # Temperature offset for generic heater while printing (°C)
+variable_chamber_heater_control_external_heater: False    # Enable automatic control for external heater devices
+variable_chamber_heater_air_circulation_enable: True      # Use part cooling for air circulation during preheating
+variable_chamber_heater_air_circulation_fan_speed: 0.35   # Part cooling fan speed for air circulation (0.0-1.0)
+variable_chamber_heater_air_circulation_y_pos: 0          # Toolhead Y-position for air circulation
+variable_chamber_heater_air_circulation_z_pos: 100        # Toolhead Z-position for air circulation
+variable_chamber_heater_extra_fan_speed: 1.0              # Extra chamber heater fan speed (0.0-1.0)
+variable_chamber_heater_filter_fan_speed: 1.0             # Filter fan speed for air circulation (0.0-1.0)
 ```
