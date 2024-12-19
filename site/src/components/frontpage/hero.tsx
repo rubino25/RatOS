@@ -154,12 +154,12 @@ export const Hero = () => {
 								delay={1000}
 								text={[
 									{
-										title: "Adaptive Operating System",
+										title: "Adaptive Printer OS",
 										className:
-											"text-lg font-medium tracking-tight lg:text-2xl",
+											"text-base font-medium tracking-tight lg:text-2xl",
 									},
 									{
-										title: "For Custom Built Hardware",
+										title: "for Custom Hardware",
 										className:
 											"text-sm font-normal opacity-50 tracking-tight lg:text-xl",
 									},
