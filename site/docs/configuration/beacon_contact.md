@@ -176,11 +176,11 @@ Check your build plate:
 
 Scan 1
 
-<img src="_media/0degree.png" width="600" />
+![Scan 1: 0 degrees rotation](_media/0degree.png)
 
 Scan 2 with the build plate rotated by 90°
 
-<img src="_media/90degree.png" width="600" />
+![Scan 2: 90 degrees rotation](_media/90degree.png)
 
 Since this feature is still in beta, you need to activate it manually by copying the following configuration to `printer.cfg`:
 
