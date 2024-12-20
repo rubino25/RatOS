@@ -76,15 +76,12 @@ const config: Config = {
 		image: "img/site-banner.png?bust=1",
 		algolia: {
 			// If Algolia did not provide you any appId, use 'BH4D9OD16A'
-			appId: "BH4D9OD16A",
+			appId: "C4EC7MR0DP",
 
 			// Public API key: it is safe to commit it
-			apiKey: "ad8f23a9185eed2471ddcb819c4f30c5",
+			apiKey: "e8599497fd4d4d7f251685c6eb1333f0",
 
 			indexName: "ratrig",
-
-			// Optional: see doc section below
-			contextualSearch: true,
 
 			//... other Algolia params
 		},
@@ -144,33 +141,6 @@ const config: Config = {
 			darkTheme: darkCodeTheme,
 			additionalLanguages: ["bash", "python", "gcode", "properties"],
 		},
-		ssrTemplate: `<!DOCTYPE html>
-			<html <%~ it.htmlAttributes %>>
-			  <head>
-				<meta charset="UTF-8">
-				<meta name="generator" content="Docusaurus v<%= it.version %>">
-				<% it.metaAttributes.forEach((metaAttribute) => { %>
-				  <%~ metaAttribute %>
-				<% }); %>
-				<%~ it.headTags %>
-				<% it.stylesheets.forEach((stylesheet) => { %>
-				  <link rel="stylesheet" href="<%= it.baseUrl %><%= stylesheet %>" />
-				<% }); %>
-				<% it.scripts.forEach((script) => { %>
-				  <link rel="preload" href="<%= it.baseUrl %><%= script %>" as="script">
-				<% }); %>
-			  </head>
-			  <body <%~ it.bodyAttributes %>>
-				<%~ it.preBodyTags %>
-				<div id="__docusaurus">
-				  <%~ it.appHtml %>
-				</div>
-				<% it.scripts.forEach((script) => { %>
-				  <script src="<%= it.baseUrl %><%= script %>"></script>
-				<% }); %>
-				<%~ it.postBodyTags %>
-			  </body>
-			</html>`,
 	} satisfies ThemeConfig,
 } satisfies Config;
 
