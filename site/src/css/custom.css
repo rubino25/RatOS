@@ -4,13 +4,13 @@
 
 @layer base {
 	h1 {
-		@apply text-4xl/snug font-semibold tracking-tight text-pretty mb-4;
+		@apply mb-4 text-pretty text-4xl/snug font-semibold tracking-tight;
 	}
 	h2 {
-		@apply text-3xl/snug font-semibold tracking-tight text-pretty;
+		@apply text-pretty text-3xl/snug font-semibold tracking-tight;
 	}
 	h3 {
-		@apply text-2xl/snug font-semibold tracking-tight text-pretty;
+		@apply text-pretty text-2xl/snug font-semibold tracking-tight;
 	}
 	a {
 		@apply text-brand-600;
@@ -23,87 +23,87 @@
 /**
  * Fix article styling
  */
- 
- body article .markdown {
-	 @apply prose-sm md:prose-base min-[1440px]:prose-lg prose-invert prose-headings:text-pretty max-w-none;
-	 @apply prose-ul:pl-4 prose-ul:list-outside prose-li:marker:text-sky-300 prose-ul:mt-0 prose-ol:mt-0 prose-li:my-1 prose-li:text-zinc-300;
-	 @apply prose-headings:m-[var(--ifm-heading-margin-top)_0_calc(var(--ifm-heading-margin-bottom)_/_2)_0_];
-	 @apply prose-table:w-full prose-table:table prose-table:table-auto prose-td:px-3 prose-th:text-left prose-th:px-3;
- }
 
- body article .markdown .button p {
+body article .markdown {
+	@apply prose-sm prose-invert max-w-none md:prose-base min-[1440px]:prose-lg prose-headings:text-pretty;
+	@apply prose-ol:mt-0 prose-ul:mt-0 prose-ul:list-outside prose-ul:pl-4 prose-li:my-1 prose-li:text-zinc-300 prose-li:marker:text-sky-300;
+	@apply prose-headings:m-[var(--ifm-heading-margin-top)_0_calc(var(--ifm-heading-margin-bottom)_/_2)_0_];
+	@apply prose-table:table prose-table:w-full prose-table:table-auto prose-th:px-3 prose-th:text-left prose-td:px-3;
+}
+
+body article .markdown .button p {
 	@apply mb-0;
- }
+}
 
- body article .markdown h1:first-child {
+body article .markdown h1:first-child {
 	@apply mt-0;
- }
+}
 
- body article .markdown code {
-	@apply text-zinc-200 bg-zinc-200/10 border-zinc-200/20 border px-1;
- }
+body article .markdown code {
+	@apply border border-zinc-200/20 bg-zinc-200/10 px-1 text-zinc-200;
+}
 
- body article .markdown pre {
+body article .markdown pre {
 	@apply mt-0;
- }
+}
 
- body article .markdown pre code {
+body article .markdown pre code {
 	@apply bg-transparent p-0;
- }
+}
 
- article .avatar__name a {
-	 @apply no-underline text-pretty font-bold text-white;
- }
+article .avatar__name a {
+	@apply text-pretty font-bold text-white no-underline;
+}
 
- article .avatar__intro small {
+article .avatar__intro small {
 	@apply text-zinc-400;
- }
+}
 
- body article .markdown p:first-child, body article .markdown h2:first-child {
+body article .markdown p:first-child,
+body article .markdown h2:first-child {
 	@apply mt-0;
- }
+}
 
-
- body article header h2 + div, body article header h2 + div > time {
+body article header h2 + div,
+body article header h2 + div > time {
 	@apply text-zinc-400 !important;
- }
+}
 
- body article .markdown .theme-admonition > div > :last-child {
+body article .markdown .theme-admonition > div > :last-child {
 	@apply mb-0;
- }
- article header h2 {
-	 @apply text-2xl leading-[var(--ifm-heading-line-height)] font-bold tracking-tight text-pretty mt-0;
- }
- article header h2 a {
-	 @apply no-underline text-pretty;
- }
- article header .avatar a img {
-	 @apply m-0;
- }
- article ul {
-	 @apply list-disc list-inside mb-5;
- }
- article ol {
-	 @apply list-decimal mb-5;
- }
- article ol p {
-	 @apply inline;
- }
+}
+article header h2 {
+	@apply mt-0 text-pretty text-2xl font-bold leading-[var(--ifm-heading-line-height)] tracking-tight;
+}
+article header h2 a {
+	@apply text-pretty no-underline;
+}
+article header .avatar a img {
+	@apply m-0;
+}
+article ul {
+	@apply mb-5 list-inside list-disc;
+}
+article ol {
+	@apply mb-5 list-decimal;
+}
+article ol p {
+	@apply inline;
+}
 
- article .theme-admonition {
+article .theme-admonition {
 	@apply text-white/80;
- }
- article .theme-admonition > div:first-child {
-	@apply font-bold text-base;
- }
+}
+article .theme-admonition > div:first-child {
+	@apply text-base font-bold;
+}
 
- /**
+/**
   * Sidebar
   */
- .table-of-contents__link.toc-highlight {
+.table-of-contents__link.toc-highlight {
 	@apply truncate;
- }
-
+}
 
 /**
  * Any CSS included here will be global. The classic template
@@ -163,16 +163,16 @@
 	--ifm-color-danger-lightest: hsl(var(--red-300));
 
 	--ifm-color-gray-0: var(--ifm-color-white);
-    --ifm-color-gray-100: hsl(var(--zinc-100) / 100%);
-    --ifm-color-gray-200: hsl(var(--zinc-200) / 100%);
-    --ifm-color-gray-300: hsl(var(--zinc-300) / 100%);
-    --ifm-color-gray-400: hsl(var(--zinc-400) / 100%);
-    --ifm-color-gray-500: hsl(var(--zinc-500) / 100%);
-    --ifm-color-gray-600: hsl(var(--zinc-600) / 100%);
-    --ifm-color-gray-700: hsl(var(--zinc-700) / 100%);
-    --ifm-color-gray-800: hsl(var(--zinc-800) / 100%);
-    --ifm-color-gray-900: hsl(var(--zinc-900) / 100%);
-    --ifm-color-gray-1000: hsl(var(--zinc-950) / 100%);
+	--ifm-color-gray-100: hsl(var(--zinc-100) / 100%);
+	--ifm-color-gray-200: hsl(var(--zinc-200) / 100%);
+	--ifm-color-gray-300: hsl(var(--zinc-300) / 100%);
+	--ifm-color-gray-400: hsl(var(--zinc-400) / 100%);
+	--ifm-color-gray-500: hsl(var(--zinc-500) / 100%);
+	--ifm-color-gray-600: hsl(var(--zinc-600) / 100%);
+	--ifm-color-gray-700: hsl(var(--zinc-700) / 100%);
+	--ifm-color-gray-800: hsl(var(--zinc-800) / 100%);
+	--ifm-color-gray-900: hsl(var(--zinc-900) / 100%);
+	--ifm-color-gray-1000: hsl(var(--zinc-950) / 100%);
 
 	--ifm-heading-color: rgba(255, 255, 255, 1);
 
@@ -223,6 +223,27 @@ html[data-theme="dark"] {
 html[data-theme="dark"] nav.navbar {
 	@apply backdrop-blur-md;
 }
+
+nav.navbar .navbar-sidebar__backdrop {
+	@apply h-svh backdrop-blur-md;
+}
+
+nav.navbar .navbar-sidebar {
+	@apply h-svh;
+}
+
+nav.navbar .navbar-sidebar .clean-btn.navbar-sidebar__back {
+	@apply hidden;
+}
+
+nav.navbar .navbar-sidebar .download-button {
+	@apply mx-3 mt-8;
+}
+
+nav.navbar .navbar__item:has(.hidden-on-desktop) {
+	@apply md:hidden;
+}
+
 small.byline {
 	font-size: 14px;
 	font-weight: 300;
@@ -275,16 +296,22 @@ html[data-theme="dark"] .DocSearch {
 		var(--ifm-color-emphasis-200) 0%,
 		var(--ifm-color-emphasis-100) 100%
 	);
-	--docsearch-key-shadow: inset 0 -2px 0 0 hsl(var(--zinc-900) / 70%),inset 0 0 1px 1px hsl(var(--zinc-700) / 90%),0 2px 2px 0 hsl(var(--zinc-950) / 50%);
-	--docsearch-key-pressed-shadow: inset 0 -2px 0 0 hsl(var(--zinc-900) / 70%),inset 0 0 1px 1px hsl(var(--zinc-700) / 90%),0 2px 2px 0 hsl(var(--zinc-950) / 50%);
-	--docsearch-footer-shadow: inset 0 1px 0 0 hsl(var(--zinc-400) / 10%),0 -1px 0 0 hsl(var(--zinc-500) / 30%);
-	--docsearch-modal-shadow: inset 1px 1px 0 0 hsl(var(--zinc-950) / 60%),0 8px 18px 5px hsl(var(--zinc-950) / 70%);
+	--docsearch-key-shadow: inset 0 -2px 0 0 hsl(var(--zinc-900) / 70%),
+		inset 0 0 1px 1px hsl(var(--zinc-700) / 90%),
+		0 2px 2px 0 hsl(var(--zinc-950) / 50%);
+	--docsearch-key-pressed-shadow: inset 0 -2px 0 0 hsl(var(--zinc-900) / 70%),
+		inset 0 0 1px 1px hsl(var(--zinc-700) / 90%),
+		0 2px 2px 0 hsl(var(--zinc-950) / 50%);
+	--docsearch-footer-shadow: inset 0 1px 0 0 hsl(var(--zinc-400) / 10%),
+		0 -1px 0 0 hsl(var(--zinc-500) / 30%);
+	--docsearch-modal-shadow: inset 1px 1px 0 0 hsl(var(--zinc-950) / 60%),
+		0 8px 18px 5px hsl(var(--zinc-950) / 70%);
 	--docsearch-highlight-color: hsl(var(--brand-600));
 }
 
 html[data-theme="dark"] .DocSearch.DocSearch-Container {
-	@apply backdrop-blur-sm overscroll-contain;
-	@apply animate-in fade-in-0 duration-300;
+	@apply overscroll-contain backdrop-blur-sm;
+	@apply duration-300 animate-in fade-in-0;
 }
 
 html[data-theme="dark"] body.DocSearch--active {
