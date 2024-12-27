@@ -34,11 +34,22 @@ It is recommended to use the 32-bit (`rpi32`) version of the image, 64-bit (`rpi
 
 ### WIFI or Ethernet
 
-When the RatOS image has been written to the SD card, insert the SD card into the Raspberry Pi and turn on the Pi. After a few minutes the raspberry pi will host a hotspot called "RatOS", join this hotspot on your phone or a PC/Laptop with wifi, the password is "raspberry". When connected, open [http://RatOS.local/configure](http://RatOS.local/configure) or [http://192.168.50.1/configure](http://192.168.50.1/configure) and follow the steps presented there to setup wifi and your printers hostname.
+1. Wait for the RatOS wifi hotspot to show up
 
-Alternatively, if you're using a pi with Ethernet, you can use an ethernet cable instead.
+When the RatOS image has been written to the SD card, insert the SD card into the Raspberry Pi and turn on the Pi. After a few minutes the raspberry pi will host a hotspot called "RatOS", join this hotspot on your phone or a PC/Laptop with wifi, the password is "raspberry". 
 
-After completing the wifi setup wizard, wait a couple of minutes, then open [http://RatOS.local/config](http://RatOS.local/config) in your browser (or whatever hostname you chose during setup). This will take you to Mainsail, which we'll now use to update RatOS and all related packages to the latest version.
+2. Open the RatOS configurator and complete the first step in the setup wizard to configure wifi and hostname
+	* If you're using a pi with Ethernet, you can use an ethernet cable instead and skip the wifi setup step.
+
+When connected, open [http://RatOS.local/configure](http://RatOS.local/configure) or [http://192.168.50.1/configure](http://192.168.50.1/configure) and follow the instructions presented there to setup wifi and your printers hostname.
+
+<div className="text-amber-400 font-medium">
+**Do NOT continue to the next step in the setup wizard before updating the software!**
+</div>
+
+3. Open mainsail before continuing to the next step in the setup wizard.
+
+After completing the wifi setup wizard, RatOS will reboot your pi which will now join your wifi network. Wait a couple of minutes for it to boot up, then open [http://RatOS.local/config](http://RatOS.local/config) in your browser (or whatever hostname you chose during setup). This will take you to Mainsail, which we'll now use to update RatOS and all related packages to the latest version.
 
 :::info Troubleshooting
 If you cannot connect to http://RatOS.local/config but the RatOS hotspot doesn't show up, try looking up the IP of your pi on your routers admin interface and use that instead. Eg: http://192.168.0.123/config.
