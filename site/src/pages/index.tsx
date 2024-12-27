@@ -2,23 +2,13 @@ import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import {
 	ArrowRightLeftIcon,
-	BoltIcon,
 	BugOffIcon,
 	CalendarDaysIcon,
 	ChartLineIcon,
-	ChevronRightIcon,
 	CloudUploadIcon,
-	CogIcon,
-	DownloadCloudIcon,
-	DownloadIcon,
-	FingerprintIcon,
 	FunctionSquareIcon,
 	HeartHandshakeIcon,
-	LockIcon,
-	RefreshCcwIcon,
-	ServerIcon,
 	UsersIcon,
-	Wand,
 	WandSparklesIcon,
 	ZapIcon,
 } from "lucide-react";

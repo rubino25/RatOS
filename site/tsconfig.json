@@ -4,6 +4,10 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"jsx": "react-jsx",
-		"types": ["react/jsx-runtime"]
+		"types": ["react/jsx-runtime"],
+		"paths": {
+			"@site/*": ["./*"],
+			"react": ["./node_modules/@types/react"]
+		}
 	}
 }

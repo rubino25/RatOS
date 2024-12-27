@@ -236,14 +236,6 @@ nav.navbar .navbar-sidebar .clean-btn.navbar-sidebar__back {
 	@apply hidden;
 }
 
-nav.navbar .navbar-sidebar .download-button {
-	@apply mx-3 mt-8;
-}
-
-nav.navbar .navbar__item:has(.hidden-on-desktop) {
-	@apply md:hidden;
-}
-
 small.byline {
 	font-size: 14px;
 	font-weight: 300;
