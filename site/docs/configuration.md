@@ -160,4 +160,4 @@ accel_chip_y: lis2dw my_lis2dw_accelerometer
 
 ### Realtime Analysis Tool
 
-The Realtime Analysis Tool is a tool that allows you to analyze the resonance of your printer in realtime. Read more about it in the [Realtime Analysis Tool guide](guides/real-time-analysis).
+The Realtime Analysis Tool is a tool that allows you to analyze the resonance of your printer in realtime. Read more about it in the [Realtime Analysis Tool guide](/docs/guides/real-time-analysis).
