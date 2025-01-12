@@ -137,6 +137,10 @@ ${1}START_FEATURE FEATURE="${2}"\n${3}\nEND_FEATURE FEATURE="${2}"\n
 This encapsulates all gcode marked by ;TYPE in START_FEATURE and END_FEATURE.
 ```
 
+<div className="text-amber-300 font-medium">
+Make sure to check the "Regular expression" and "Match single line" boxes, the latter should appear after you've checked the former.
+</div>
+
 This allows you to change settings based on the feature being printed. For example, you can change the square corner velocity for internal infill by configuring the USER_START_FEATURE and USER_END_FEATURE macros like so:
 
 ```properties
