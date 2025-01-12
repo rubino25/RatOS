@@ -115,6 +115,43 @@ Pause GCode
 PAUSE
 ```
 
+### Change settings based on "feature" (Optional)
+
+In print settings under "Output options", you can add the following as a "G-code substitution" (make sure to enable expert settings).
+
+**Find:**
+
+```re
+(;TYPE:((?:\w+|[[:blank:]])+)\n)(((.|\s|)(?!M204(\w|\s)+;TYPE:))+)
+```
+
+**Replace with:**
+
+```re
+${1}START_FEATURE FEATURE="${2}"\n${3}\nEND_FEATURE FEATURE="${2}"\n
+```
+
+**Description:**
+
+```
+This encapsulates all gcode marked by ;TYPE in START_FEATURE and END_FEATURE.
+```
+
+This allows you to change settings based on the feature being printed. For example, you can change the square corner velocity for internal infill by configuring the USER_START_FEATURE and USER_END_FEATURE macros like so:
+
+```properties
+[gcode_macro _USER_START_FEATURE]
+gcode:
+  M118 Printing {params.FEATURE}..
+  {% if params.FEATURE|lower == 'internal infill' %}
+  SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=20
+  {% endif %}
+
+[gcode_macro _USER_END_FEATURE]
+gcode:
+  M118 End printing {params.FEATURE}..
+```
+
 ## Super Slicer
 
 _Super Slicer supports IDEX printers, but it is not recommended to use._
