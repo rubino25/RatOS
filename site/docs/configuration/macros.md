@@ -305,11 +305,11 @@ Runs after the START_PRINT macro
 
 ### \_USER_START_FEATURE
 
-Runs at the start of a new print feature. This is useful for running custom G-Code based on the feature that is being printed.
+Runs at the start of a new print feature. This is useful for running custom G-Code based on the feature that is being printed. See the [PrusaSlicer Configuration](/docs/slicers#change-settings-based-on-feature-optional) documentation for more information.
 
 ### \_USER_END_FEATURE
 
-Runs at the end of a print feature. This is useful for running custom G-Code based on the feature that is being printed.
+Runs at the end of a print feature. This is useful for running custom G-Code based on the feature that is being printed. See the [PrusaSlicer Configuration](/docs/slicers#change-settings-based-on-feature-optional) documentation for more information.
 
 ## Internal macro hooks
 
